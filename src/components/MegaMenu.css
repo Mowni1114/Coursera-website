@@ -36,7 +36,7 @@
 ============================ */
 .mega-wrapper .mega-menu {
   position: absolute !important;
-  top:  18px!important;   /* 👈 SUPER SMALL GAP */
+  top: calc(100% + 2px) !important;   /* 👈 SUPER SMALL GAP */
   left: 0 !important;
   width: 100% !important;
   margin: 0;
@@ -47,11 +47,12 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
+
 /* Columns inside Mega Menu */
 .mega-menu .dropdown-item {
   color: #000;
   font-size: 14px;
-  padding: 3px 0;
+  padding: 3px 7px;
   transition: 0.2s ease;
   font-family: "Source Sans Pro", Arial, sans-serif;
 }
@@ -62,3 +63,5 @@
   text-decoration-color: #000;      /* dark underline */
   cursor: pointer;
 }
+
+

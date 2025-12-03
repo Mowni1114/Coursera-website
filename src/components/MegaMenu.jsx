@@ -7,7 +7,7 @@ const MegaMenu = () => {
 
       {/* Explore Trigger Button */}
       <div
-        className="explore-trigger dropdown-toggle"
+        className="explore-trigger dropdown-toggle d-none d-xl-flex"
         data-bs-toggle="dropdown"
       >
         Explore
@@ -78,3 +78,17 @@ const MegaMenu = () => {
 };
 
 export default MegaMenu;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
