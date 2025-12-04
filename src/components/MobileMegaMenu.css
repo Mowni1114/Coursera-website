@@ -1,54 +1,62 @@
-.mobile-menu-list {
-  display: flex;
-  flex-direction: column;
+/* Hide offcanvas in desktop */
+@media (min-width: 992px) {
+  .offcanvas,
+  .offcanvas-backdrop {
+    display: none !important;
+  }
 }
 
-.mobile-menu-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 18px;
+/* Main menu items */
+.mobile-item {
+  background: #fff;
+  padding-left: 12px;
+  padding-right: 12px;
   font-size: 16px;
-  font-weight: 500;
-  font-family: "Source Sans Pro", Arial, sans-serif;
-  background: #fff;
   cursor: pointer;
-  border-bottom: none;   /* <-- LINE REMOVED */
+  color: #0F1114;
 }
 
-
-.mobile-menu-item span {
-  color: #222;
-}
-
-.mobile-menu-item svg {
-  color: #6c757d;
-}
-
-.mobile-menu-item.no-arrow {
-  justify-content: flex-start;
-}
-
-
-
-.mobile-menu-item {
-  padding: 14px 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  border-bottom: 1px solid #eee;
+/* Fixed footer */
+.mobile-fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 16px;
   background: #fff;
+  z-index: 9999;
 }
 
-.submenu {
-  background: #fafafa;
-  padding-left: 30px;
-  padding-bottom: 10px;
+/* Submenu overlay page */
+.submenu-page {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 99999;
+  overflow-y: auto;
 }
 
-.submenu p {
-  margin: 8px 0;
-  font-size: 15px;
-  color: #444;
+/* Submenu header (light blue) */
+.submenu-header {
+  background: #F2F5FA;
+  color: #5B6780;
+}
+
+/* Submenu items */
+.submenu-item {
+  font-size: 16px;
+  color: #0F1114;
+}
+
+/* Extra padding so content won't go under footer */
+.mobile-menu-wrapper {
+  padding-bottom: 180px;
+}
+ 
+
+.offcanvas-backdrop {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }

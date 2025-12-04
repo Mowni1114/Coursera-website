@@ -27,9 +27,7 @@ span:hover {
   cursor: pointer;
   padding:10px;
 }
-.login-hover:hover {
-  text-decoration: underline;
-}
+
 
 /* Exact Coursera hamburger */
 .coursera-ham-btn {
