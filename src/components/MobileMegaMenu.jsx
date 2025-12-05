@@ -42,11 +42,10 @@ const MobileMegaMenu = () => {
   return (
     <div className="mobile-menu-wrapper">
 
-      {/* ---------------- MAIN PAGE ---------------- */}
       {currentPage === "main" && (
         <>
           <div
-            className="d-flex justify-content-between align-items-center py-3 mobile-item"
+            className="d-flex justify-content-between align-items-center py-2 mobile-item"
             onClick={() => setCurrentPage("roles")}
           >
             <span>Explore roles</span>
@@ -54,7 +53,7 @@ const MobileMegaMenu = () => {
           </div>
 
           <div
-            className="d-flex justify-content-between align-items-center py-3 mobile-item"
+            className="d-flex justify-content-between align-items-center py-2 mobile-item"
             onClick={() => setCurrentPage("categories")}
           >
             <span>Explore categories</span>
@@ -62,7 +61,7 @@ const MobileMegaMenu = () => {
           </div>
 
           <div
-            className="d-flex justify-content-between align-items-center py-3 mobile-item"
+            className="d-flex justify-content-between align-items-center py-2 mobile-item"
             onClick={() => setCurrentPage("skills")}
           >
             <span>Trending skills</span>
@@ -70,7 +69,7 @@ const MobileMegaMenu = () => {
           </div>
 
           <div
-            className="d-flex justify-content-between align-items-center py-3 mobile-item"
+            className="d-flex justify-content-between align-items-center py-2 mobile-item"
             onClick={() => setCurrentPage("certificates")}
           >
             <span>Earn a Professional Certificates</span>
@@ -80,13 +79,13 @@ const MobileMegaMenu = () => {
           <hr />
 
           <p className="text-muted px-2 mb-1">Not sure where to begin?</p>
-          <div className="py-3 mobile-item">Browse free courses</div>
+          <div className="py-2 mobile-item">Browse free courses</div>
 
           <hr />
 
-          <div className="py-3 mobile-item">For Businesses</div>
-          <div className="py-3 mobile-item">For Universities</div>
-          <div className="py-3 mobile-item mb-5">For Governments</div>
+          <div className="py-2 mobile-item">For Businesses</div>
+          <div className="py-2 mobile-item">For Universities</div>
+          <div className="py-2 mobile-item mb-5">For Governments</div>
 
           {/* FIXED FOOTER */}
           <div className="mobile-fixed-footer bg-white shadow">
@@ -105,7 +104,7 @@ const MobileMegaMenu = () => {
       {currentPage !== "main" && (
         <div className="submenu-page">
 
-          <div className="d-flex justify-content-between align-items-center px-3 py-3 submenu-header">
+          <div className="d-flex justify-content-between align-items-center px-2 py-2 submenu-header">
             <span
               onClick={() => setCurrentPage("main")}
               className="d-flex align-items-center gap-2"
@@ -121,14 +120,14 @@ const MobileMegaMenu = () => {
             ></button>
           </div>
 
-          <h4 className="fw-bold px-3 mt-3">
+          <h4 className=" submenu fw-bold px-2 mt-2">
             {currentPage === "roles" && "Explore roles"}
             {currentPage === "categories" && "Explore categories"}
             {currentPage === "skills" && "Trending skills"}
             {currentPage === "certificates" && "Earn a Professional Certificates"}
           </h4>
 
-          <div className="px-3 mt-2">
+          <div className="px-2 mt-1">
             {menus[currentPage].map((item, index) => (
               <p key={index} className="py-2 submenu-item">
                 {item}

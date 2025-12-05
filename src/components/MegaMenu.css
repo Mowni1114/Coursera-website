@@ -1,10 +1,8 @@
-/* ============================
-   Explore Trigger Button
-============================ */
+
 .explore-trigger {
-  background: transparent;                 /* transparent */
+  background: transparent;                 
   border: none;
-  color: #5b6780;                         /* default text color */
+  color: #5b6780;                        
   font-size: 14px;
   cursor: pointer;
   display: flex;
@@ -12,31 +10,28 @@
   gap: 5px;
   padding: 10px 12px;
   font-family: "Source Sans Pro", Arial, sans-serif;
-  border-radius: 4px;                     /* subtle rounded */
-  transition: 0.25s ease;                 /* smooth hover transition */
+  border-radius: 4px;                    
+  transition: 0.25s ease;                
 }
-/* Chevron Icon */
+
 .explore-trigger .arrow {
   font-size: 12px;
   transition: transform 0.3s ease;
 }
-/* Hover Effect — EXACT Coursera blue */
+
 .explore-trigger:hover {
-  background: #e8f0fe;                     /* light blue background */
-  color: #0056d2;                          /* dark blue text */
+  background: #e8f0fe;                    
+  color: #0056d2;                         
 }
 
-/* Optional: Rotate arrow on hover */
+
 .explore-trigger:hover .arrow {
   transform: rotate(180deg);
 }
 
-/* ============================
-   Mega Menu Styles
-============================ */
 .mega-wrapper .mega-menu {
   position: absolute !important;
-  top: calc(100% + 2px) !important;   /* 👈 SUPER SMALL GAP */
+  top: calc(100% + 2px) !important;   
   left: 0 !important;
   width: 100% !important;
   margin: 0;
@@ -48,7 +43,7 @@
   z-index: 1000;
 }
 
-/* Columns inside Mega Menu */
+
 .mega-menu .dropdown-item {
   color: #000;
   font-size: 14px;
@@ -58,10 +53,16 @@
 }
 .mega-menu .dropdown-item:hover {
   text-decoration: underline;
-  text-decoration-thickness: 2px;   /* thicker underline */
-  text-underline-offset: 2px;       /* small gap below text */
-  text-decoration-color: #000;      /* dark underline */
+  text-decoration-thickness: 2px;  
+  text-underline-offset: 2px;      
+  text-decoration-color: #000;      
   cursor: pointer;
 }
 
+
+.mega-menu .dropdown-item:active,
+.mega-menu .dropdown-item:focus {
+  background-color: transparent !important;
+  color: #000 !important;
+}
 

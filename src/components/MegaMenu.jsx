@@ -5,7 +5,6 @@ const MegaMenu = () => {
   return (
     <div className="mega-wrapper dropdown position-static">
 
-      {/* Explore Trigger Button */}
       <div
         className="explore-trigger dropdown-toggle d-none d-xl-flex"
         data-bs-toggle="dropdown"
@@ -13,12 +12,12 @@ const MegaMenu = () => {
         Explore
       </div>
 
-      {/* Mega Menu */}
+   
       <div className="dropdown-menu mega-menu shadow w-100">
         <div className="container">
           <div className="row">
 
-            {/* Column 1 */}
+          
             <div className="col-md-3">
               <h6 className="fw-bold mb-2">Explore roles</h6>
               <a className="dropdown-item">Data Analyst</a>
@@ -30,7 +29,7 @@ const MegaMenu = () => {
               <a className="dropdown-item">View all</a>
             </div>
 
-            {/* Column 2 */}
+      
             <div className="col-md-3">
               <h6 className="fw-bold mb-2">Explore categories</h6>
               <a className="dropdown-item">Artificial Intelligence</a>
@@ -42,7 +41,6 @@ const MegaMenu = () => {
               <a className="dropdown-item">View all</a>
             </div>
 
-            {/* Column 3 */}
             <div className="col-md-3">
               <h6 className="fw-bold mb-2">Professional Certificates</h6>
               <a className="dropdown-item">Business</a>
@@ -56,7 +54,7 @@ const MegaMenu = () => {
               <a className="dropdown-item">Postgraduate Programs</a>
             </div>
 
-            {/* Column 4 */}
+       
             <div className="col-md-3">
               <h6 className="fw-bold mb-2">Trending Skills</h6>
               <a className="dropdown-item">Python</a>

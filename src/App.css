@@ -1,11 +1,11 @@
-/* RESET ALL DEFAULT MARGINS, PADDING, BOX SIZING */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ENSURE BODY & ROOT TAKE FULL WIDTH */
+
 html, body, #root, .App {
   margin: 0;
   padding: 0;
@@ -14,7 +14,7 @@ html, body, #root, .App {
  font-family: "Source Sans Pro", Arial, sans-serif; 
 }
 
-/* OPTIONAL: BACKGROUND */
+
 body {
   background: #f8f8f8;
 }
