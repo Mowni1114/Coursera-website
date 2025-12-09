@@ -1,0 +1,178 @@
+/* OUTER WRAPPER */
+.m-scroll-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 40px;
+  margin-left: 20px;
+}
+
+/* SLIDER ROW */
+.m-scroll-container {
+  display: flex;
+  gap:8px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  padding-left: 15px;
+  scroll-snap-type: x mandatory;
+}
+
+.m-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Cards */
+.m-scroll-card {
+   
+  min-width: 85%;
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.m-carousel-img {
+  margin-top:30px ;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 22px;
+ 
+}
+
+/* TEXT OVERLAY */
+.m-inner-text {
+  position: absolute;
+  top: 68px;
+  left: 24px;
+  right: 24px;
+}
+
+.m-inner-text h2 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+
+.m-join-btn {
+  margin-top: 7px;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 8px 14px;
+}
+
+/* ARROWS */
+.m-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: transparent !important;
+  border: none;
+  font-size: 22px;
+  color: black;
+  cursor: pointer;
+  padding: 0;
+}
+.m-arrow:hover{
+    color: blue;
+}
+
+.m-left-arrow {
+  left: 5px;
+}
+
+.m-right-arrow {
+  right: 5px;
+}
+
+/* DOTS */
+.m-dots-wrapper {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+  padding-left: 20px;
+}
+
+.m-dot {
+  width: 8px;
+  height: 8px;
+  background: #8d8d8d;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: none !important;
+}
+
+.m-dot.active {
+  width: 26px;
+  height: 8px;
+  border-radius: 20px;
+  background: #8d8d8d;
+  transition: none !important;
+}
+
+    
+@media (min-width: 375px) {
+  .m-scroll-card {
+    min-width: 72%;
+  }
+}
+@media (min-width: 425px) {
+  .m-scroll-card {
+    min-width: 66%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  .m-scroll-card {
+    min-width: 39%;
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden; /* important */
+
+  }
+
+  /* IMAGE FIX (NO WHITE BORDER) */
+  .m-carousel-img {
+    width: 90%;
+    height: 100%;
+    object-fit: cover;   /* fill card fully, no empty space */
+    border-radius: 18px;
+    background: transparent !important;
+    gap: 10px;
+  }
+
+  /* TEXT OVERLAY */
+  .m-inner-text {
+    position: absolute;
+    top: 65px;
+    left: 24px;
+    right: 24px;
+  }
+
+  .m-inner-text h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.25;
+    max-width: 260px;
+  }
+
+  .m-join-btn {
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 10px 16px;
+    border-radius: 10px;
+  }
+
+  .m-scroll-container {
+    gap: 0px;
+    padding-left: 20px;
+  }
+
+}
+
+
+.firstimage {
+  margin-left: 20px;
+}
