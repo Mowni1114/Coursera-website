@@ -10,9 +10,11 @@ import MobileMegaMenu from "./MobileMegaMenu";
 const Navbar = () => {
   return (
     <>
+       <header className="navbar-wrapper">
+    
       {/* TOP BLACK STRIP - ONLY DESKTOP */}
       <div
-        className="bg-dark text-white d-none d-xl-flex align-items-center px-5"
+        className="bg-dark text-white d-none d-xl-flex align-items-center px-5 ps-5"
         style={{ height: "44px", gap: "20px" }}
       >
         <span className="top-tab-individual">For <strong>Individuals</strong></span>
@@ -22,20 +24,21 @@ const Navbar = () => {
       </div>
 
       {/* MAIN NAVBAR */}
-      <nav className="navbar navbar-expand-xl bg-white border-bottom px-4" style={{ height: "76px" }}>
+      <nav className="navbar navbar-expand-xl bg-white border-bottom " style={{ height: "76px" }}>
+         
         {/* LEFT: Hamburger for Mobile */}
        <button
-  className="navbar-toggler border-0 coursera-ham-btn"
-  type="button"
-  data-bs-toggle="offcanvas"
-  data-bs-target="#mobileMenu"
+        className="navbar-toggler border-0 coursera-ham-btn"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#mobileMenu"
 >
   <div className="coursera-ham"></div>
 </button>
 
 
         {/* LOGO */}
-        <a className="navbar-brand ms-3 ms-xl-0" href="#">
+        <a className="navbar-brand ps-5 " href="#">
           <svg
             viewBox="0 0 1155 164"
             xmlns="http://www.w3.org/2000/svg"
@@ -145,6 +148,8 @@ const Navbar = () => {
     <MobileMegaMenu />
   </div>
 </div>
+</header>
+
 
     </>
   );

@@ -3,7 +3,8 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding-bottom: 50px;
+  padding-bottom: 50px; /* keep bottom padding */
+  /* remove padding-left */
 }
 
 /* SLIDER ROW */
@@ -12,15 +13,20 @@
   gap: 20px;
   overflow-x: scroll;
   scroll-behavior: smooth;
-  padding-left: 20px;
 
-  /* Enable horizontal drag */
   scroll-snap-type: x mandatory;
 }
 
 .scroll-container::-webkit-scrollbar {
   display: none;
 }
+
+
+
+.scroll-card:first-child {
+  margin-left: 50px; /* only for the first card */
+}
+
 
 /* Cards */
 .scroll-card {
@@ -83,7 +89,7 @@
   display: flex;
   gap: 8px;
   margin-top: 20px;
-  padding-left: 40px;
+
 }
 
 /* NORMAL DOT */

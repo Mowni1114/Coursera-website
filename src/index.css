@@ -4,3 +4,26 @@ html, body, * {
   font-family: "Source Sans Pro", Arial, sans-serif !important;
 }
 
+.page-wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 13px;
+  box-sizing: border-box;
+  overflow-x: hidden; /* prevent horizontal scroll */
+  display: flex;
+  flex-direction: column; /* stack content vertically */
+  align-items: center;    /* center inner content */
+}
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 0 16px;
+  }
+}
+
+/* Make inner content responsive */
+.page-wrapper > * {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}

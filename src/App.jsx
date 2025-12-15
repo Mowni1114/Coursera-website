@@ -5,12 +5,14 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <>
+      {/* FULL WIDTH NAVBAR */}
       <Navbar />
+
+      {/* PAGE CONTENT */}
       <Home />
-    </div>
+    </>
   );
 }
-
 export default App;
 

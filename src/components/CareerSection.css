@@ -1,0 +1,127 @@
+/* CARD BASE */
+
+.career-scroll.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.career-card {
+  background: linear-gradient(to right, #f3f0ff, #f1ecfb);
+  border-radius: 16px;
+  padding: 14px 16px;
+  height: 80px;                /* 🔥 HEIGHT KAMI */
+  position: relative;
+  overflow: hidden;
+  transition: 0.25s ease;
+  display: flex;
+  align-items: center;
+}
+
+.career-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+/* TEXT – NO LINE BREAK */
+.career-card h3 {
+  font-size: 12px;          /* mobile-friendly */
+  font-weight: 600;
+  margin: 0;
+  width: 72%;
+  white-space: nowrap;      /* single line */
+  overflow: visible;        /* 🔥 no ellipsis */
+  letter-spacing: -0.2px;   /* tighter words */
+}
+@media (min-width: 768px) {
+  .career-card h3 {
+    font-size: 15px;
+    letter-spacing: 0;
+  }
+}
+/* DESKTOP & LARGE SCREENS */
+@media (min-width: 1024px) {
+  /* CARD TEXT */
+  .career-card h3 {
+    font-size: 25px !important;       /* force override */
+    letter-spacing: 0 !important;
+    font-weight: 600;
+  }
+
+  /* ICON */
+  .career-card .main-icon {
+    width: 60px !important;           /* force override */
+  }
+
+  /* CARD SIZE */
+  .career-card {
+    height: 120px !important;         /* optional: bigger card */
+    padding: 20px 24px !important;
+  }
+}
+
+
+
+/* ICON */
+.main-icon {
+  position: absolute;
+  right: 14px;
+  width: 34px;                 /* 🔥 IMAGE KAMI */
+}
+
+/* MOBILE SCROLL */
+.career-scroll {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.career-scroll::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .career-scroll {
+    overflow-x: hidden;
+  }
+
+  .career-card {
+    height: 90px;
+    padding: 16px;
+  }
+
+  .career-card h3 {
+    font-size: 15px;
+  }
+
+  .main-icon {
+    width: 38px;
+  }
+}
+/* DEFAULT – Small mobile (320–375) */
+.career-col {
+  flex: 0 0 65%;
+}
+@media (min-width: 376px) and (max-width: 575px) {
+  .career-col {
+    flex: 0 0 43%;   /* 2 cards @ 420px */
+  }
+}
+
+@media (min-width: 768px) {
+  .career-col {
+    flex: unset;     /* 3 cards grid */
+  }
+}
+
+
+/* 🔥 MOBILE L – 425px (2 CARDS) */
+@media (min-width: 376px) and (max-width: 575px) {
+  .career-col {
+    flex: 0 0 48%;   /* 🔥 TWO CARDS */
+  }
+}
+
+/* TABLET & ABOVE – Bootstrap takes control */
+@media (min-width: 768px) {
+  .career-col {
+    flex: unset;
+  }
+}

@@ -1,14 +1,14 @@
 import React, { useRef, useState } from "react";
 import "./MobileCarousel.css";
-
+import ArrowButton from "./ArrowButton";
 import mobile1 from "../assets/mobile1.png";
 import mobile2 from "../assets/mobile2.png";
 import mobile3 from "../assets/mobile3.png";
-
-const MobileCarousel = () => {
+        
+  const MobileCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollRef = useRef(null);
-
+                                
   const images = [mobile1, mobile2, mobile3];
 
   const handleScroll = () => {
@@ -17,7 +17,6 @@ const MobileCarousel = () => {
     const index = Math.round(container.scrollLeft / cardWidth);
     setCurrentIndex(index);
   };
-
   const goToSlide = (index) => {
     const container = scrollRef.current;
     const cardWidth = container.offsetWidth;
@@ -26,22 +25,19 @@ const MobileCarousel = () => {
       left: index * cardWidth,
       behavior: "smooth",
     });
-
+                                                               
     setCurrentIndex(index);
   };
-
   return (
-    <div className="m-scroll-wrapper">
+    <div className="m-scroll-wrapper pb-1">
 
       {/* LEFT ARROW */}
-      {currentIndex > 0 && (
-        <button
-          className="m-arrow m-left-arrow"
-          onClick={() => goToSlide(currentIndex - 1)}
-        >
-          ❮
-        </button>
-      )}
+    <ArrowButton
+  direction="left"
+  show={currentIndex > 0}
+  onClick={() => goToSlide(currentIndex - 1)}
+/>
+
 
       {/* SLIDER */}
       <div
@@ -89,14 +85,13 @@ const MobileCarousel = () => {
       </div>
 
       {/* RIGHT ARROW */}
-      {currentIndex < images.length - 1 && (
-        <button
-          className="m-arrow m-right-arrow"
-          onClick={() => goToSlide(currentIndex + 1)}
-        >
-          ❯
-        </button>
-      )}
+     <ArrowButton
+  direction="right"
+  show={currentIndex < images.length - 1}
+  onClick={() => goToSlide(currentIndex + 1)}
+/>
+
+
 
       {/* DOTS */}
       <div className="m-dots-wrapper">

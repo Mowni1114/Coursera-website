@@ -12,8 +12,7 @@ const ResponsiveCarousel = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Desktop → HeroCarousel
-  // Mobile + Tablet + Small laptop → MobileCarousel
+ 
   return width >= 900 ? <HeroCarousel /> : <MobileCarousel />;
 };
 

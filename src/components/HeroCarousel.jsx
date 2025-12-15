@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./HeroCarousel.css";
+import ArrowButton from "./ArrowButton";
+
 
 import carousel1 from "../assets/carousel1.png";
 import carousel2 from "../assets/carousel2.png";
@@ -34,18 +36,16 @@ const HeroCarousel = () => {
 
   return (
     <>
-      <div className="scroll-wrapper">
+      <div className="scroll-wrapper pb-3">
+      <div className="page-wrapper">
+
 
         {/* LEFT ARROW */}
-        {currentIndex > 0 && (
-          <button
-            className="arrow left-arrow"
-            onClick={() => goToSlide(currentIndex - 1)}
-          >
-            ❮
-          </button>
-        )}
-
+       <ArrowButton
+       direction="left"
+       show={currentIndex > 0}
+       onClick={() => goToSlide(currentIndex - 1)}
+       />
         {/* SLIDER */}
         <div
           className="scroll-container"
@@ -53,7 +53,7 @@ const HeroCarousel = () => {
           onScroll={handleScroll}
         >
           {/* CARD 1 */}
-          <div className="scroll-card">
+          <div className="scroll-card ">
             <div className="hero-img-overlay">
               <img src={carousel1} className="carousel-img" alt="Slide 1" />
 
@@ -103,14 +103,12 @@ const HeroCarousel = () => {
         </div>
 
         {/* RIGHT ARROW */}
-        {currentIndex < images.length - 1 && (
-          <button
-            className="arrow right-arrow"
-            onClick={() => goToSlide(currentIndex + 1)}
-          >
-            ❯
-          </button>
-        )}
+       <ArrowButton
+        direction="right"
+        show={currentIndex < images.length - 1}
+         onClick={() => goToSlide(currentIndex + 1)}
+        />
+
 
         {/* DOTS */}
         <div className="dots-wrapper">
@@ -123,6 +121,7 @@ const HeroCarousel = () => {
           ))}
         </div>
       </div>
+    </div>
     </>
   );
 };
