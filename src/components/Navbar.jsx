@@ -24,7 +24,7 @@ const Navbar = () => {
       </div>
 
       {/* MAIN NAVBAR */}
-      <nav className="navbar navbar-expand-xl bg-white border-bottom " style={{ height: "76px" }}>
+      <nav className="navbar navbar-expand-xl bg-white border-bottom sticky-top" style={{ height: "76px" }}>
          
         {/* LEFT: Hamburger for Mobile */}
        <button

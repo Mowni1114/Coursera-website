@@ -5,22 +5,26 @@
 }
 .arrow {
   position: absolute;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
-  z-index: 20;
-  background: white;
+  z-index: 500;
+  background: transparent !important; /* No white circle */
   border: none;
-  padding: 10px 15px;
-  font-size: 20px;
-  border-radius: 50%;
+  width: auto;
+  height: auto;
+  font-size: 20px;         /* Bigger arrow */
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  color: black;            /* Black arrow */
+  box-shadow: none !important;
+  padding: 0;
 }
-
+.arrow:hover{
+  color:blue;
+}
 .left-arrow {
-  left: 5px;
+  left: 10px;
 }
 
 .right-arrow {
-  right: 5px;
+  right: 10px;
 }

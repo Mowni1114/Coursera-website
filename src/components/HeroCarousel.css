@@ -11,22 +11,20 @@
 .scroll-container {
   display: flex;
   gap: 20px;
-  overflow-x: scroll;
+  overflow-x: auto;
   scroll-behavior: smooth;
-
   scroll-snap-type: x mandatory;
 }
+
+/* Remove any first-child margin */
+.scroll-card:first-child {
+  margin-left: 0;
+}
+
 
 .scroll-container::-webkit-scrollbar {
   display: none;
 }
-
-
-
-.scroll-card:first-child {
-  margin-left: 50px; /* only for the first card */
-}
-
 
 /* Cards */
 .scroll-card {
@@ -35,6 +33,7 @@
   border-radius: 22px;
   overflow: hidden;
   scroll-snap-align: start;
+ 
 }
 
 .carousel-img {
@@ -56,33 +55,6 @@
   margin-top: 30px;
 }
 
-/* ARROWS — NO ROUND BACKGROUND */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 500;
-
-  background: transparent !important; /* No white circle */
-  border: none;
-  width: auto;
-  height: auto;
-  font-size: 20px;         /* Bigger arrow */
-  cursor: pointer;
-  color: black;            /* Black arrow */
-  box-shadow: none !important;
-  padding: 0;
-}
-.arrow:hover{
-  color:blue;
-}
-.left-arrow {
-  left: 10px;
-}
-
-.right-arrow {
-  right: 10px;
-}
 
 /* DOTS EXACT LIKE COURSERA */
 .dots-wrapper {
@@ -92,15 +64,14 @@
 
 }
 
-/* NORMAL DOT */
 .dot {
   width: 10px;
   height: 10px;
   background: #8d8d8d;
   border-radius: 50%;
   cursor: pointer;
-
-  /* No animation / no zoom */
+  margin-bottom: 0px;
+  pointer-events: none;
   transition: none !important;
   transform: none !important;
 }
