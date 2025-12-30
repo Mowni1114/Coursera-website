@@ -30,66 +30,81 @@ const CareerSection = () => {
 
   const scrollLogo = (dir) => {
     logoScrollRef.current.scrollBy({
-      left: dir === "left" ? -220 : 220, // one pill scroll
+      left: dir === "left" ? -220 : 220,
       behavior: "smooth",
     });
   };
+  
+
 
   return (
     <div className="container my-2">
 
+      {/* ===== CAREER SECTION ===== */}
+      <div className="career-wrapper position-relative">
+
+        <div className="d-md-none">
+  <ArrowButton
+    direction="left"
+    show={careerScrollRef.current && careerScrollRef.current.scrollLeft > 0}
+    onClick={() => scrollCareer("left")}
+  />
+  <ArrowButton
+    direction="right"
+    show={
+      careerScrollRef.current &&
+      careerScrollRef.current.scrollLeft + careerScrollRef.current.offsetWidth <
+        careerScrollRef.current.scrollWidth
+    }
+    onClick={() => scrollCareer("right")}
+  />
+</div>
 
 
+        {/* CAREER CARDS */}
+        <div
+          ref={careerScrollRef}
+          className="row g-3 flex-nowrap overflow-auto career-scroll"
+        >
+          <div className="col-10 col-md-4">
+            <div className="career-card p-3">
+              <h5 className="mb-0 fw-semibold">Launch a new career</h5>
+              <img src={Union} alt="" className="career-icon" />
+            </div>
+          </div>
 
-      {/* ===== CAREER CARDS ===== */}
-      <div
-        ref={careerScrollRef}
-        className="row g-3 flex-nowrap flex-md-wrap overflow-auto career-scroll">
-      
-        <div className="col-10 col-md-4">
-          <div className="career-card p-3">
-            <h5 className="mb-0 fw-semibold">Launch a new career</h5>
-            <img src={Union} alt="" className="career-icon" />
+          <div className="col-10 col-md-4">
+            <div className="career-card p-3">
+              <h5 className="mb-0 fw-semibold">Gain in-demand skills</h5>
+              <img src={Certificate} alt="" className="career-icon" />
+            </div>
+          </div>
+
+          <div className="col-10 col-md-4">
+            <div className="career-card p-3">
+              <h5 className="mb-0 fw-semibold">Earn a degree</h5>
+              <img src={Cap} alt="" className="career-icon" />
+            </div>
           </div>
         </div>
-
-        <div className="col-10 col-md-4">
-          <div className="career-card p-3">
-            <h5 className="mb-0 fw-semibold">Gain in-demand skills</h5>
-            <img src={Certificate} alt="" className="career-icon" />
-          </div>
-        </div>
-
-        <div className="col-10 col-md-4">
-          <div className="career-card p-3">
-            <h5 className="mb-0 fw-semibold">Earn a degree</h5>
-            <img src={Cap} alt="" className="career-icon" />
-          </div>
-        </div>
-         
       </div>
 
-      
-      
-      
-      
+      {/* ===== LOGO SECTION ===== */}
+      <div className="my-1 position-relative">
 
-      {/* ===== LOGO PILLS ===== */}
-      <div className="my-3 position-relative">
-
-        {/* ARROWS */}
+        {/* DESKTOP ARROWS */}
         <div className="d-none d-md-flex justify-content-between position-absolute w-100 top-50 translate-middle-y px-2">
           <ArrowButton direction="left" onClick={() => scrollLogo("left")} />
           <ArrowButton direction="right" onClick={() => scrollLogo("right")} />
         </div>
 
-        <h4 className="fw-semibold mb-3">
+        <h4 className="fw-semibold mb-3 learn">
           Learn from 350+ leading universities and companies
         </h4>
 
         <div
           ref={logoScrollRef}
-          className="d-flex gap-3 align-items-center overflow-auto logo-scroll"
+          className="logo-scroll d-flex gap-3 align-items-center overflow-auto"
         >
           {[
             { img: Google, name: "Google" },
@@ -113,6 +128,7 @@ const CareerSection = () => {
           ))}
         </div>
       </div>
+
     </div>
   );
 };

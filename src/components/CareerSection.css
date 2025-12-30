@@ -11,17 +11,16 @@
 .career-wrapper {
   padding-bottom: 40px;
 }
+.career-wrapper {
+  position: relative;
+}
 
 .career-arrows {
-  position: absolute;
-  bottom: 6px;          /* 👈 cards keela */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 110px;
-
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
 }
+
 
 
 .career-card:hover {
@@ -102,16 +101,21 @@
     font-size: 25px !important;
   }
 }
-
-/* hide scrollbar */
 .logo-scroll {
   scrollbar-width: none;
 }
 .logo-scroll::-webkit-scrollbar {
   display: none;
 }
+.learn{
+  font-size: 20px;
+}
+@media(max-width:768px){
+  .learn{
+    font-size:16px;
+  }
+}
 
-/* pill like coursera */
 .logo-pill {
   background: #fff;
   border: 1px solid #e6ecf5;

@@ -12,7 +12,7 @@ const Navbar = () => {
     <>
        <header className="navbar-wrapper">
     
-      {/* TOP BLACK STRIP - ONLY DESKTOP */}
+ 
       <div
         className="bg-dark text-white d-none d-xl-flex align-items-center px-5 ps-5"
         style={{ height: "44px", gap: "20px" }}
@@ -23,21 +23,21 @@ const Navbar = () => {
         <span>For Governments</span>
       </div>
 
-      {/* MAIN NAVBAR */}
+      
       <nav className="navbar navbar-expand-xl bg-white border-bottom sticky-top" style={{ height: "76px" }}>
          
-        {/* LEFT: Hamburger for Mobile */}
+       
        <button
         className="navbar-toggler border-0 coursera-ham-btn"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#mobileMenu"
->
-  <div className="coursera-ham"></div>
-</button>
+         >
+        <div className="coursera-ham"></div>
+        </button>
 
 
-        {/* LOGO */}
+        
         <a className="navbar-brand ps-5 " href="#">
           <svg
             viewBox="0 0 1155 164"
