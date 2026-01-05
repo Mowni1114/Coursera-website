@@ -1,7 +1,7 @@
 .career-card {
   background: linear-gradient(135deg, #f4f1ff, #ece8ff);
   border-radius: 16px;
-  min-height: 90px;
+  height: 90px;
   transition: 0.25s ease;
   display: flex;
   align-items: center;
@@ -78,11 +78,12 @@
 }
 
 
-@media (min-width: 425px) and (max-width: 575px) {
+@media (min-width: 425px) {
   .career-col {
-    flex: 0 0 48%;
+    flex: 0 0 50%;
   }
 }
+
 
 @media (min-width: 768px) {
   .career-col {
@@ -108,7 +109,7 @@
   display: none;
 }
 .learn{
-  font-size: 20px;
+  font-size: 28px;
 }
 @media(max-width:768px){
   .learn{
@@ -116,23 +117,38 @@
   }
 }
 
+/* ===== LOGO SCROLL FIX ===== */
+.logo-scroll {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;                 /* ⭐ pill gap */
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+}
+
+.logo-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== LOGO PILL ===== */
 .logo-pill {
+  flex: 0 0 auto;            /* ⭐ MOST IMPORTANT */
+  width: auto;
+  height: 44px;
+  padding: 10px ;
   background: #fff;
   border: 1px solid #e6ecf5;
   border-radius: 999px;
-  cursor: pointer;
-  white-space: nowrap;
-  width: 280px;          /* ⭐ KEY */
-  height: 44px;          /* ⭐ KEY */
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 14px;
+  cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.logo-pill * {
-  pointer-events: none;
 }
 
 .logo-pill:hover {
@@ -140,31 +156,54 @@
   box-shadow: 0 8px 16px rgba(0,0,0,0.12);
 }
 
-/* THIS IS THE MAIN FIX */
+.logo-pill * {
+  pointer-events: none;
+  flex:0 0  auto;
+}
+
 .logo-img {
-  height: 20px;       
-  width: 41px;
-   /* max-width: 24px;   */
+  width: 31px;
+  height: 18px;
   object-fit: contain;
 }
 
-/* no animation for text */
 .logo-pill span {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 16px;
+ padding-top: 10px;
   color: #111;
-  text-shadow: none !important;
-  transform: none !important;
-  will-change: auto;
+  font-weight: 900;
 }
-
 .logo-scroll {
   display: flex;
-  gap: 12px;
-  overflow-x: auto;
+  gap: 16px;
+
+  overflow-x: auto;     /* 🔥 MUST */
+  overflow-y: hidden;
+
+  white-space: nowrap; 
   scroll-behavior: smooth;
-  scrollbar-width: none;
+
+  position: relative;
 }
-.logo-scroll::-webkit-scrollbar {
-  display: none;
+
+
+.logo-arrows {
+  position: absolute;
+  top: 65%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000; 
+
+  pointer-events: none;   /* 👈 normal view interaction safe */
 }
+
+.logo-arrows button {
+  pointer-events: auto;   /* 👈 arrow click work aagum */
+}
+
+
+

@@ -7,7 +7,7 @@
   position: absolute;
   top: 45%;
   transform: translateY(-50%);
-  z-index: 500;
+  z-index: 1000;
   background: transparent !important; /* No white circle */
   border: none;
   width: auto;

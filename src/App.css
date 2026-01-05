@@ -18,3 +18,13 @@ html, body, #root, .App {
 body {
   background: #f8f8f8;
 }
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

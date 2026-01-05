@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./CareerSection.css";
+
 import ArrowButton from "./ArrowButton";
 
 import Union from "../assets/Union.png";
@@ -21,51 +22,99 @@ const CareerSection = () => {
   const careerScrollRef = useRef(null);
   const logoScrollRef = useRef(null);
 
-  const scrollCareer = (dir) => {
-    careerScrollRef.current.scrollBy({
-      left: dir === "left" ? -300 : 300,
-      behavior: "smooth",
-    });
+  const [showCareerArrows, setShowCareerArrows] = useState(false);
+
+  // For dynamic logo arrows
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  // Check if career scroll needs arrows
+  const checkCareerScroll = () => {
+    const el = careerScrollRef.current;
+    if (!el) return;
+    setShowCareerArrows(el.scrollWidth > el.clientWidth);
   };
 
-  const scrollLogo = (dir) => {
-    logoScrollRef.current.scrollBy({
-      left: dir === "left" ? -220 : 220,
-      behavior: "smooth",
-    });
-  };
-  
+  // Scroll functions
+  const scrollCareer = (direction) => {
+    const el = careerScrollRef.current;
+    if (!el) return;
 
+    const scrollAmount = 300; // adjust as needed
+    if (direction === "left") {
+      el.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    } else {
+      el.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
+  const scrollLogo = (direction) => {
+    const el = logoScrollRef.current;
+    if (!el) return;
+
+    const scrollAmount = 300;
+    if (direction === "left") {
+      el.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    } else {
+      el.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
+  // Update which logo arrows should show
+  const updateLogoArrows = () => {
+    const el = logoScrollRef.current;
+    if (!el) return;
+
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth);
+  };
+
+  // Effects
+  useEffect(() => {
+    setTimeout(checkCareerScroll, 100);
+    window.addEventListener("resize", checkCareerScroll);
+    return () => window.removeEventListener("resize", checkCareerScroll);
+  }, []);
+
+  useEffect(() => {
+    updateLogoArrows();
+
+    const el = logoScrollRef.current;
+    if (!el) return;
+
+    el.addEventListener("scroll", updateLogoArrows);
+    window.addEventListener("resize", updateLogoArrows);
+
+    return () => {
+      el.removeEventListener("scroll", updateLogoArrows);
+      window.removeEventListener("resize", updateLogoArrows);
+    };
+  }, []);
 
   return (
     <div className="container my-2">
-
       {/* ===== CAREER SECTION ===== */}
       <div className="career-wrapper position-relative">
-
-        <div className="d-md-none">
-  <ArrowButton
-    direction="left"
-    show={careerScrollRef.current && careerScrollRef.current.scrollLeft > 0}
-    onClick={() => scrollCareer("left")}
-  />
-  <ArrowButton
-    direction="right"
-    show={
-      careerScrollRef.current &&
-      careerScrollRef.current.scrollLeft + careerScrollRef.current.offsetWidth <
-        careerScrollRef.current.scrollWidth
-    }
-    onClick={() => scrollCareer("right")}
-  />
-</div>
-
-
         {/* CAREER CARDS */}
         <div
           ref={careerScrollRef}
           className="row g-3 flex-nowrap overflow-auto career-scroll"
         >
+          {showCareerArrows && (
+            <>
+              <ArrowButton
+                direction="left"
+                show={true}
+                onClick={() => scrollCareer("left")}
+              />
+              <ArrowButton
+                direction="right"
+                show={true}
+                onClick={() => scrollCareer("right")}
+              />
+            </>
+          )}
+
           <div className="col-10 col-md-4">
             <div className="career-card p-3">
               <h5 className="mb-0 fw-semibold">Launch a new career</h5>
@@ -91,21 +140,30 @@ const CareerSection = () => {
 
       {/* ===== LOGO SECTION ===== */}
       <div className="my-1 position-relative">
+        {(canScrollLeft || canScrollRight) && (
+          <div className="logo-arrows">
+            {canScrollLeft && (
+              <ArrowButton
+                direction="left"
+                show={true}
+                onClick={() => scrollLogo("left")}
+              />
+            )}
+            {canScrollRight && (
+              <ArrowButton
+                direction="right"
+                show={true}
+                onClick={() => scrollLogo("right")}
+              />
+            )}
+          </div>
+        )}
 
-        {/* DESKTOP ARROWS */}
-        <div className="d-none d-md-flex justify-content-between position-absolute w-100 top-50 translate-middle-y px-2">
-          <ArrowButton direction="left" onClick={() => scrollLogo("left")} />
-          <ArrowButton direction="right" onClick={() => scrollLogo("right")} />
-        </div>
-
-        <h4 className="fw-semibold mb-3 learn">
+        <h4 className="fw-semibold mb-3  learn display-4">
           Learn from 350+ leading universities and companies
         </h4>
 
-        <div
-          ref={logoScrollRef}
-          className="logo-scroll d-flex gap-3 align-items-center overflow-auto"
-        >
+        <div ref={logoScrollRef} className="logo-scroll">
           {[
             { img: Google, name: "Google" },
             { img: IBM, name: "IBM" },
@@ -118,17 +176,13 @@ const CareerSection = () => {
             { img: University, name: "University of Pennsylvania" },
             { img: Michigan, name: "University of Michigan" },
           ].map((item, index) => (
-            <div
-              key={index}
-              className="logo-pill d-flex align-items-center gap-2 px-2 py-2"
-            >
+            <div key={index} className="logo-pill">
               <img src={item.img} alt={item.name} className="logo-img" />
-              <span className="fw-medium">{item.name}</span>
+              <h6>{item.name}</h6>
             </div>
           ))}
         </div>
       </div>
-
     </div>
   );
 };

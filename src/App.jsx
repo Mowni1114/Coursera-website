@@ -11,6 +11,11 @@ function App() {
 
       {/* PAGE CONTENT */}
       <Home />
+
+
+    
+
+
     </>
   );
 }
