@@ -8,28 +8,24 @@ const HeroCarousel = () => {
   const scrollRef = useRef(null);
 
   
- const handleScroll = () => {
+const handleScroll = () => {
   const container = scrollRef.current;
-  const cardWidth = container.scrollWidth / carouselData.length; // safer
-  const index = Math.round(container.scrollLeft / cardWidth);
+  const index = Math.round(container.scrollLeft / window.innerWidth);
   setCurrentIndex(index);
 };
 
-  const goToSlide = (index) => {
-    const container = scrollRef.current;
-    const cardWidth = container.offsetWidth;
+const goToSlide = (index) => {
+  scrollRef.current.scrollTo({
+    left: index * window.innerWidth,
+    behavior: "smooth",
+  });
+  setCurrentIndex(index);
+};
 
-    container.scrollTo({
-      left: index * cardWidth,
-      behavior: "smooth",
-    });
-
-    setCurrentIndex(index);
-  };
 
   return (
     <div className="scroll-wrapper pb-3">
-      <div className="page-wrapper">
+    
         
         
         <ArrowButton
@@ -73,7 +69,7 @@ const HeroCarousel = () => {
           ))}
         </div>
       </div>
-    </div>
+
   );
 };
 

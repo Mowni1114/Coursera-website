@@ -31,12 +31,18 @@ import mobile3 from "../assets/mobile3.png";
   return (
     <div className="m-scroll-wrapper pb-1">
 
-      {/* LEFT ARROW */}
-    <ArrowButton
+   <ArrowButton
   direction="left"
-  show={currentIndex > 0}
+  scrollContainerRef={scrollRef}
   onClick={() => goToSlide(currentIndex - 1)}
 />
+
+<ArrowButton
+  direction="right"
+  scrollContainerRef={scrollRef}
+  onClick={() => goToSlide(currentIndex + 1)}
+/>
+
 
 
       {/* SLIDER */}
@@ -84,13 +90,7 @@ import mobile3 from "../assets/mobile3.png";
         </div>
       </div>
 
-      {/* RIGHT ARROW */}
-     <ArrowButton
-  direction="right"
-  show={currentIndex < images.length - 1}
-  onClick={() => goToSlide(currentIndex + 1)}
-/>
-
+  
 
 
       {/* DOTS */}

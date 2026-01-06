@@ -21,6 +21,9 @@ import Michigan from "../assets/Michigan.png";
 const CareerSection = () => {
   const careerScrollRef = useRef(null);
   const logoScrollRef = useRef(null);
+  const [canCareerLeft, setCanCareerLeft] = useState(false);
+const [canCareerRight, setCanCareerRight] = useState(false);
+
 
   const [showCareerArrows, setShowCareerArrows] = useState(false);
 
@@ -47,6 +50,14 @@ const CareerSection = () => {
       el.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
+  const updateCareerArrows = () => {
+  const el = careerScrollRef.current;
+  if (!el) return;
+
+  setCanCareerLeft(el.scrollLeft > 0);
+  setCanCareerRight(el.scrollLeft + el.clientWidth < el.scrollWidth);
+};
+
 
   const scrollLogo = (direction) => {
     const el = logoScrollRef.current;
@@ -70,11 +81,21 @@ const CareerSection = () => {
   };
 
   // Effects
-  useEffect(() => {
-    setTimeout(checkCareerScroll, 100);
-    window.addEventListener("resize", checkCareerScroll);
-    return () => window.removeEventListener("resize", checkCareerScroll);
-  }, []);
+useEffect(() => {
+  updateCareerArrows();
+
+  const el = careerScrollRef.current;
+  if (!el) return;
+
+  el.addEventListener("scroll", updateCareerArrows);
+  window.addEventListener("resize", updateCareerArrows);
+
+  return () => {
+    el.removeEventListener("scroll", updateCareerArrows);
+    window.removeEventListener("resize", updateCareerArrows);
+  };
+}, []);
+
 
   useEffect(() => {
     updateLogoArrows();
@@ -100,20 +121,24 @@ const CareerSection = () => {
           ref={careerScrollRef}
           className="row g-3 flex-nowrap overflow-auto career-scroll"
         >
-          {showCareerArrows && (
-            <>
-              <ArrowButton
-                direction="left"
-                show={true}
-                onClick={() => scrollCareer("left")}
-              />
-              <ArrowButton
-                direction="right"
-                show={true}
-                onClick={() => scrollCareer("right")}
-              />
-            </>
-          )}
+          {canCareerLeft && (
+  <ArrowButton
+    direction="left"
+    show={true}
+    onClick={() => scrollCareer("left")}
+    style={{ top: "40%" }}
+  />
+)}
+
+{canCareerRight && (
+  <ArrowButton
+    direction="right"
+    show={true}
+    onClick={() => scrollCareer("right")}
+    style={{ top: "40%" }}
+  />
+)}
+
 
           <div className="col-10 col-md-4">
             <div className="career-card p-3">

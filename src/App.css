@@ -20,11 +20,17 @@ body {
 }
 
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+
+/* Hide horizontal scrollbar – mobile & tablet safe */
+.hide-x-scrollbar {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE / Edge */
 }
 
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.hide-x-scrollbar::-webkit-scrollbar {
+  height: 0;                   /* Chrome / Android */
+  display: none;               /* Safari / iOS */
 }

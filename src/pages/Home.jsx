@@ -6,14 +6,18 @@ import ExploreCategories from "../components/ExploreCategories";
 import HotRelease from "../components/HotRelease";
 
 const Home = () => {
-  return (
+  return (<>
+
+
     <div className="page-wrapper">
       <ResponsiveCarousel />
       <CareerSection />
       <TrendingCoursesSection />
-      <div style={{paddingTop : "20px"}}>   <ExploreCategories /></div>
-      <div style={{paddingTop : "20px"}}>  <HotRelease /> </div>
+      <div >   <ExploreCategories /></div>
+  
     </div>
+        <div style={{paddingTop : "20px"}}>  <HotRelease /> </div>
+    </>
   );
 };
 
