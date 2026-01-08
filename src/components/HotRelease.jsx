@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
+
+import ArrowButton from "./ArrowButton";
+
 import card_img1 from "../assets/card_img1.png";
 import card_img2 from "../assets/card_img2.png";
 import card_img3 from "../assets/card_img3.png";
 import card_img4 from "../assets/card_img4.png";
+
 import Microsoft from "../assets/Microsoft.png";
 import IBM from "../assets/IBM.png";
 import meta from "../assets/meta.png";
 import Adobe from "../assets/Adobe.png";
 
-/* Styled title inside card */
+/* Styled title */
 const Title = styled.h6`
-  font-size: 15px;
   font-weight: 700;
   color: #0f172a;
 `;
 
-/* Course list data */
 const courseList = [
   {
     id: 1,
@@ -31,114 +33,130 @@ const courseList = [
     id: 2,
     image: card_img2,
     logo: IBM,
-    provider: "Microsoft",
-    title: "Azure Cloud Fundamentals",
-    type: "Beginner Level",
+    provider: "IBM",
+    title: "IBM RAG and Agentic AI",
+    type: "Professional Certificate",
     rating: 4.6,
   },
   {
     id: 3,
     image: card_img3,
     logo: meta,
-    provider: "Microsoft",
-    title: "Data Science with Python",
-    type: "Advanced Course",
-    rating: 4.5,
+    provider: "Meta",
+    title: "Meta Full Stack Developer: Front-End & Back-End",
+    type: "Specialization",
+    rating: 4.7,
   },
   {
     id: 4,
     image: card_img4,
     logo: Adobe,
-    provider: "Microsoft",
-    title: "AI & Machine Learning",
-    type: "Specialization",
+    provider: "Adobe",
+    title: "Adobe Marketing Specialist",
+    type: "Professional Certificate",
     rating: 4.7,
   },
 ];
 
 function HotRelease() {
+  const scrollRef = useRef(null);
+  const [showArrows, setShowArrows] = useState(false);
+
+  /* detect mobile / tablet */
+  useEffect(() => {
+    const checkScreen = () => {
+      setShowArrows(window.innerWidth < 1024); // lg breakpoint
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -260, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: 260, behavior: "smooth" });
+  };
+
   return (
-    <div className="w-full py-8 ">
-      {/* Gradient Container */}
+    <div className="w-full py-8">
       <div
         className="
-          relative w-[92.9%] mx-auto rounded-[25px]
+          relative max-w-7xl mx-auto
+          rounded-[25px]
           bg-[linear-gradient(90deg,#0b5cff,#2f7df6,#6ad3b2)]
-          px-6 py-6
-          min-h-[400px]
+          px-4 sm:px-6 py-6
+          min-h-[300px]
         "
       >
         {/* Title */}
-        <div className="absolute top-[15px] left-[20px] flex items-center gap-[4px]">
-          <h5
-            className="
-              text-white
-              text-[7px] max-lg:text-[6px] max-sm:text-[5px]
-              cursor-pointer
-              hover:underline hover:underline-offset-2
-              leading-none
-            "
-            style={{
-              fontWeight: "600",
-            }}
-          >
+        <div className="absolute top-[15px] left-[20px] flex items-center gap-1">
+          <h5 className="text-white font-semibold text-sm hover:underline">
             Hot new releases
           </h5>
-
-          <h6
-            className="text-white text-[7px] max-lg:text-[6px] max-sm:text-[5px] leading-none  pt-1 "
-            style={{ fontWeight: "600" }}
-          >
-            ➜
-          </h6>
+          <span className="text-white">➜</span>
         </div>
 
-        {/* Scroll Wrapper */}
-        <div className="overflow-x-auto">
+        {/* ⬅ Arrow */}
+        <ArrowButton
+          direction="left"
+          show={showArrows}
+          onClick={scrollLeft}
+        />
+
+        {/* ➡ Arrow */}
+        <ArrowButton
+          direction="right"
+          show={showArrows}
+          onClick={scrollRight}
+        />
+
+        {/* Cards */}
+        <div
+          ref={scrollRef}
+          className="overflow-x-auto lg:overflow-x-hidden no-scrollbar"
+        >
           <div
-            className="flex gap-3 justify-center min-w-max pb-2"
+            className="
+              flex gap-3 min-w-max pb-3
+              lg:grid lg:grid-cols-4
+              lg:gap-6 lg:min-w-0
+            "
             style={{ marginTop: "60px" }}
           >
             {courseList.map((course) => (
               <div
                 key={course.id}
                 className="
-                  bg-white rounded-[14px]
-                  w-[297px] flex-shrink-0
-                  p-2
-                  overflow-hidden
-                  min-h-[322px]
+                  bg-white rounded-[14px] p-2
+                  w-[220px] sm:w-[240px] md:w-[210px] lg:w-full
+                  min-h-[260px] md:min-h-[300px] lg:min-h-[322px]
+                  transition hover:-translate-y-1 hover:shadow-xl
                 "
               >
                 <img
                   src={course.image}
                   alt="course"
-                  className="rounded-[10px] w-[100%] h-[160px] object-cover"
+                  className="w-full h-[160px] object-cover rounded-[10px]"
                 />
 
-
-                <div className="flex items-center gap-2 mt-1 px-2 ">
-                  <img src={course.logo} className="w-[18px] " alt="logo" />
-                  <p className="text-gray-500 text-xs  pt-2 ">
-                    {course.provider}
-                  </p>
+                <div className="flex items-center gap-2 mt-2 px-2">
+                  <img src={course.logo} className="w-[16px]" alt="logo" />
+                  <p className="text-gray-500 text-xs">{course.provider}</p>
                 </div>
 
-                <Title className="mt-2 px-2 ">
+                <Title className="mt-1 px-2 text-sm">
                   {course.title}
                 </Title>
 
-                <p className="text-gray-500 text-xs mt-1 px-2 ">
-                  {course.type}
-                </p>
+                <p className="text-gray-500 px-2 text-xs">{course.type}</p>
 
-                <div className="flex items-center gap-1 mt-2 px-2 select-none pointer-events-none">
-                  <span className="text-black text-sm">★</span>
-                  <span className="text-gray-600 text-xs">
-                    {course.rating}
-                  </span>
+                <div className="flex items-center gap-1 px-2 mt-2 text-xs">
+                  ★ {course.rating}
                 </div>
-
               </div>
             ))}
           </div>

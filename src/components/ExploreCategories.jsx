@@ -122,27 +122,38 @@ const ExploreCategories = () => {
           {categories.map((cat, index) => {
             const Icon = cat.icon;
             return (
-              <button
-                key={index}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  height: "40px",
-                  padding: "0 20px",
-                  backgroundColor: "#eef4ff",
-                  borderRadius: "9999px",
-                  fontSize: "14px",
-                  fontWeight: "500",
-                  whiteSpace: "nowrap",
-                  border: "none",
-                  cursor: "pointer",
-                  flexShrink: 0,
-                }}
-              >
-                <Icon size={16} />
-                {cat.name}
-              </button>
+            <button
+  key={index}
+  style={{
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "8px",
+    height: "40px",
+    padding: "0 20px",
+    backgroundColor: "#eef4ff",
+    borderRadius: "9999px", // ROUND DESIGN inline
+    fontSize: "14px",
+    fontWeight: "500",
+    whiteSpace: "nowrap",
+    border: "none",
+    cursor: "pointer",
+    flexShrink: 0,
+  }}
+  className="
+    transition-all duration-300 ease-out
+    hover:-translate-y-0.5
+    hover:scale-[1.03]
+    hover:shadow-md
+    active:scale-[0.97]
+  "
+>
+  <Icon
+    size={16}
+    className="transition-transform duration-300 hover:scale-110"
+  />
+  {cat.name}
+</button>
+
             );
           })}
         </div>
