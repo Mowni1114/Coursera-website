@@ -5,6 +5,8 @@ import TrendingCoursesSection from "../components/TrendingCoursesSection";
 import ExploreCategories from "../components/ExploreCategories";
 import HotRelease from "../components/HotRelease";
 import Mentors from "../components/Mentors";
+import WhyCoursera from "../components/WhyCoursera";
+import IndustryCertificate from "../components/IndustryCertificate";
 
 const Home = () => {
   return (<>
@@ -15,8 +17,10 @@ const Home = () => {
       <CareerSection />
       <TrendingCoursesSection />
       <div >   <ExploreCategories /></div>
-      <div style={{paddingTop : "20px"}}>  <HotRelease />
+      <div style={{paddingTop : "20px"}}> <HotRelease />
       <div style={{paddingTop : "20px"}}><Mentors /></div>
+      <div style={{paddingTop : "20px"}}> <WhyCoursera /></div>
+      <div style={{paddingTop : "20px"}}> <IndustryCertificate /></div>
   
     </div>
          </div>
