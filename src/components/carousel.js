@@ -11,6 +11,7 @@ const carouselData = [
     title: "Start, switch, or advance \nyour career",
     subtitle: "Grow with 10,000+ courses",
     buttonText: "Join for Free →",
+    
   },
   {
     id: 2,
@@ -22,7 +23,7 @@ const carouselData = [
   {
     id: 3,
     image: carousel3,
-    title: "Drive your business \nforward and empower\n your talent", 
+    title: "Drive your business \nforward ", 
     subtitle: "Train your team with industry experts.",
     buttonText: "Try Coursera for Business →",
   },

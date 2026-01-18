@@ -89,7 +89,7 @@ const MobileMegaMenu = () => {
 
           {/* FIXED FOOTER */}
           <div className="mobile-fixed-footer bg-white shadow">
-            <button className="btn btn-primary w-100 py-3 fw-semibold rounded-3">
+            <button className="btn btn-primary w-100  py-3 fw-semibold rounded-3">
               Join for Free
             </button>
 

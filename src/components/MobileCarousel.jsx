@@ -56,7 +56,7 @@ import mobile3 from "../assets/mobile3.png";
           <img src={mobile1} className="m-carousel-img" alt="Slide 1" />
 
           <div className="m-inner-text">
-            <h2>Start, switch, or advance your career</h2>
+            <h2> Switch, or advance your career</h2>
             <button className="btn btn-primary m-join-btn">
               Join for Free 
             </button>
@@ -81,7 +81,7 @@ import mobile3 from "../assets/mobile3.png";
           <img src={mobile3} className="m-carousel-img" alt="Slide 3" />
 
           <div className="m-inner-text">
-            <h2>Drive your business <br />forward and empower<br />your talent</h2>
+            <h2>Drive your  <br /> business  forward </h2>
         
             <button className="btn btn-primary m-join-btn">
               Try Coursera for Business 

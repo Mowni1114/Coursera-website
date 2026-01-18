@@ -52,11 +52,11 @@ const certData = [
     rating: "4.6",
   },
 ];
-
+                                                                              
 const IndustryCertificate = () => {
   const scrollRef = useRef(null);
   const [showArrows, setShowArrows] = useState(false);
-
+            
   /* detect mobile / tablet */
   useEffect(() => {
     const checkScreen = () => {
@@ -66,27 +66,27 @@ const IndustryCertificate = () => {
     window.addEventListener("resize", checkScreen);
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
-
+                                                                                                                                                                                    
   const scrollLeft = () => {
     scrollRef.current.scrollBy({ left: -260, behavior: "smooth" });
   };
-
+            
   const scrollRight = () => {
     scrollRef.current.scrollBy({ left: 260, behavior: "smooth" });
   };
 
   return (
-    <section className="w-full px-4 py-10">
+    <section className="w-full px-3 py-10">
       <div className="max-w-7xl mx-auto">
-
+        
         {/* Gradient Container */}
-        <div className="rounded-[28px] bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 px-5 sm:px-6 py-6">
+        <div className="rounded-[28px] bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 px-3 sm:px-6 py-6">
 
           {/* Header */}
           <p className="text-white text-lg md:text-xl font-semibold mb-4">
             Prepare for an industry certification exam →
           </p>
-
+        
           {/* Cards Wrapper */}
           <div className="relative">
 
@@ -96,7 +96,7 @@ const IndustryCertificate = () => {
               show={showArrows}
               onClick={scrollLeft}
             />
-
+                         
             {/* ➡ Arrow */}
             <ArrowButton
               direction="right"

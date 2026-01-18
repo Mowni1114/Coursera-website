@@ -7,6 +7,8 @@ import HotRelease from "../components/HotRelease";
 import Mentors from "../components/Mentors";
 import WhyCoursera from "../components/WhyCoursera";
 import IndustryCertificate from "../components/IndustryCertificate";
+import PopularCategory from "../components/PopularCategory";
+import PromoBanners from "../components/PromoBanners";
 
 const Home = () => {
   return (<>
@@ -21,6 +23,8 @@ const Home = () => {
       <div style={{paddingTop : "20px"}}><Mentors /></div>
       <div style={{paddingTop : "20px"}}> <WhyCoursera /></div>
       <div style={{paddingTop : "20px"}}> <IndustryCertificate /></div>
+      <div style={{paddingTop : "20px"}}> <PopularCategory /></div>
+     <div style={{paddingTop : "20px"}}> <PromoBanners /></div>
   
     </div>
          </div>

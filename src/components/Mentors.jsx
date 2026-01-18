@@ -49,7 +49,7 @@ const mentorsData = [
 
 function Mentors() {
   return (
-    <section className="w-full max-w-[1400px] mx-auto px-4 py-12">
+    <section className="w-full max-w-[1400px] mx-auto px-3 py-12">
 
       {/* ================= Explore Careers ================= */}
       <div className="mb-16">

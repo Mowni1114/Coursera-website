@@ -1,25 +1,19 @@
 import React, { useRef, useState, useEffect } from "react";
-import styled from "styled-components";
-
 import ArrowButton from "./ArrowButton";
 
+/* Card Images */
 import card_img1 from "../assets/card_img1.png";
 import card_img2 from "../assets/card_img2.png";
 import card_img3 from "../assets/card_img3.png";
 import card_img4 from "../assets/card_img4.png";
 
+/* Provider Logos */
 import Microsoft from "../assets/Microsoft.png";
 import IBM from "../assets/IBM.png";
 import meta from "../assets/meta.png";
 import Adobe from "../assets/Adobe.png";
 
-/* Styled title */
-const Title = styled.h6`
-  font-weight: 700;
-  color: #0f172a;
-`;
-
-const courseList = [
+const hotReleaseData = [
   {
     id: 1,
     image: card_img1,
@@ -27,7 +21,7 @@ const courseList = [
     provider: "Microsoft",
     title: "Microsoft Python Development",
     type: "Professional Certificate",
-    rating: 4.4,
+    rating: "4.4",
   },
   {
     id: 2,
@@ -36,7 +30,7 @@ const courseList = [
     provider: "IBM",
     title: "IBM RAG and Agentic AI",
     type: "Professional Certificate",
-    rating: 4.6,
+    rating: "4.6",
   },
   {
     id: 3,
@@ -45,7 +39,7 @@ const courseList = [
     provider: "Meta",
     title: "Meta Full Stack Developer: Front-End & Back-End",
     type: "Specialization",
-    rating: 4.7,
+    rating: "4.7",
   },
   {
     id: 4,
@@ -54,20 +48,20 @@ const courseList = [
     provider: "Adobe",
     title: "Adobe Marketing Specialist",
     type: "Professional Certificate",
-    rating: 4.7,
+    rating: "4.7",
+    tag: "POPULAR",
   },
 ];
 
-function HotRelease() {
+const HotRelease = () => {
   const scrollRef = useRef(null);
   const [showArrows, setShowArrows] = useState(false);
 
   /* detect mobile / tablet */
   useEffect(() => {
     const checkScreen = () => {
-      setShowArrows(window.innerWidth < 1024); // lg breakpoint
+      setShowArrows(window.innerWidth < 1024);
     };
-
     checkScreen();
     window.addEventListener("resize", checkScreen);
     return () => window.removeEventListener("resize", checkScreen);
@@ -82,88 +76,108 @@ function HotRelease() {
   };
 
   return (
-    <div className="w-full py-8">
-      <div
-        className="
-          relative max-w-7xl mx-auto
-          rounded-[25px]
-          bg-[linear-gradient(90deg,#0b5cff,#2f7df6,#6ad3b2)]
-          px-4 sm:px-6 py-6
-          min-h-[300px]
-        "
-      >
-        {/* Title */}
-        <div className="absolute top-[15px] left-[20px] flex items-center gap-1">
-          <h5 className="text-white font-semibold text-sm hover:underline">
-            Hot new releases
-          </h5>
-          <span className="text-white">➜</span>
-        </div>
+    <section className="w-full px-3 py-10">
+      <div className="max-w-7xl mx-auto">
 
-        {/* ⬅ Arrow */}
-        <ArrowButton
-          direction="left"
-          show={showArrows}
-          onClick={scrollLeft}
-        />
+        {/* Gradient Container */}
+        <div className="rounded-[28px] bg-gradient-to-r from-blue-600 via-sky-500 to-emerald-400 px-3 sm:px-6 py-6">
 
-        {/* ➡ Arrow */}
-        <ArrowButton
-          direction="right"
-          show={showArrows}
-          onClick={scrollRight}
-        />
+          {/* Header */}
+          <p className="text-white text-lg md:text-xl font-semibold mb-4 cursor-pointer hover:underline">
+            Hot new releases →
+          </p>
 
-        {/* Cards */}
-        <div
-          ref={scrollRef}
-          className="overflow-x-auto lg:overflow-x-hidden no-scrollbar"
-        >
-          <div
-            className="
-              flex gap-3 min-w-max pb-3
-              lg:grid lg:grid-cols-4
-              lg:gap-6 lg:min-w-0
-            "
-            style={{ marginTop: "60px" }}
-          >
-            {courseList.map((course) => (
+          {/* Cards Wrapper */}
+          <div className="relative">
+
+            {/* ⬅ Arrow */}
+            <ArrowButton
+              direction="left"
+              show={showArrows}
+              onClick={scrollLeft}
+            />
+
+            {/* ➡ Arrow */}
+            <ArrowButton
+              direction="right"
+              show={showArrows}
+              onClick={scrollRight}
+            />
+
+            {/* Cards */}
+            <div
+              ref={scrollRef}
+              className="overflow-x-auto lg:overflow-x-hidden no-scrollbar"
+            >
               <div
-                key={course.id}
                 className="
-                  bg-white rounded-[14px] p-2
-                  w-[220px] sm:w-[240px] md:w-[210px] lg:w-full
-                  min-h-[260px] md:min-h-[300px] lg:min-h-[322px]
-                  transition hover:-translate-y-1 hover:shadow-xl
+                  flex gap-3 min-w-max pb-2
+                  lg:grid lg:grid-cols-4
+                  lg:gap-6 lg:min-w-0
                 "
               >
-                <img
-                  src={course.image}
-                  alt="course"
-                  className="w-full h-[160px] object-cover rounded-[10px]"
-                />
+                {hotReleaseData.map((item) => (
+                  <div
+                    key={item.id}
+                    className="
+                      bg-white rounded-[14px] p-2
+                      w-[220px] sm:w-[240px] md:w-[210px] lg:w-full
+                      min-h-[320px]
+                      transition-all duration-300
+                      hover:-translate-y-1 hover:shadow-xl
+                    "
+                  >
+                    {/* Image */}
+                    <div className="relative">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-[160px] object-cover rounded-[10px]"
+                      />
 
-                <div className="flex items-center gap-2 mt-2 px-2">
-                  <img src={course.logo} className="w-[16px]" alt="logo" />
-                  <p className="text-gray-500 text-xs">{course.provider}</p>
-                </div>
+                      {item.tag && (
+                        <span className="absolute bottom-2 left-2 text-[10px] font-semibold text-white bg-orange-500 px-2 py-[2px] rounded">
+                          {item.tag}
+                        </span>
+                      )}
+                    </div>
 
-                <Title className="mt-1 px-2 text-sm">
-                  {course.title}
-                </Title>
+                    {/* Provider */}
+                    <div className="flex items-center gap-2 mt-2 px-2">
+                      <img
+                        src={item.logo}
+                        alt={item.provider}
+                        className="w-[18px] h-[18px] object-contain"
+                      />
+                      <p className="text-gray-500 text-xs">
+                        {item.provider}
+                      </p>
+                    </div>
 
-                <p className="text-gray-500 px-2 text-xs">{course.type}</p>
+                    {/* Title */}
+                    <p className="mt-1 px-2 text-sm font-semibold text-gray-900 leading-snug line-clamp-2">
+                      {item.title}
+                    </p>
 
-                <div className="flex items-center gap-1 px-2 mt-2 text-xs">
-                  ★ {course.rating}
-                </div>
+                    {/* Type */}
+                    <p className="text-gray-500 px-2 text-xs mt-1">
+                      {item.type}
+                    </p>
+
+                    {/* Rating */}
+                    <div className="flex items-center gap-1 px-2 mt-2 text-xs text-gray-700">
+                      ★ {item.rating}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
 
 export default HotRelease;
