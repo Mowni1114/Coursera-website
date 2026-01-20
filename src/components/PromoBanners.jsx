@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import carouselData from "./carousel";
 
 import mobile1 from "../assets/mobile1.png";
@@ -10,7 +10,11 @@ import p2 from "../assets/p2.png";
 import p3 from "../assets/p3.png";
 import p4 from "../assets/p4.png";
 
+import { ChevronDown, ChevronUp } from "lucide-react";
+
 const PromoBanners = () => {
+  const [activeFaq, setActiveFaq] = useState(null);
+
   const promoSlides = [
     {
       id: 1,
@@ -43,21 +47,55 @@ const PromoBanners = () => {
       name: "Noeris B.",
       image: p2,
       text:
-        "Coursera rebuilt my confidence and showed me I could dream bigger. It wasn't just about gaining knowledge—it was about believing in my potential again.",
+        "Coursera rebuilt my confidence and showed me I could dream bigger.",
     },
     {
       id: 3,
       name: "Abdullahi M.",
       image: p3,
       text:
-        "I now feel more prepared to take on leadership roles and have already started mentoring some of my colleagues.",
+        "I now feel more prepared to take on leadership roles and have already started mentoring colleagues.",
     },
     {
       id: 4,
       name: "Anas A.",
       image: p4,
       text:
-        "Learning with Coursera has expanded my professional expertise by giving me access to cutting-edge research, practical tools, and global perspectives.",
+        "Learning with Coursera has expanded my professional expertise with global perspectives.",
+    },
+  ];
+
+  const faqData = [
+    {
+      id: 1,
+      question:
+        "Is Coursera accredited, and are Coursera certificates recognized by employers?",
+      answer:
+       " Coursera partners with accredited universities and leading companies such as Google and IBM to offer courses, Specializations, and Professional Certificates. Employers widely recognize these credentials because they are issued directly by trusted institutions. Learners can build job-ready skills with the Google Data Analytics Professional Certificate, the IBM Data Analyst Professional Certificate, or start with accredited university content in high-demand fields like data analytics and cybersecurity"
+    },
+    {
+      id: 2,
+      question: "Is a Coursera certificate worth it?",
+      answer:
+        "For many learners, a Coursera certificate is worth it because it provides job-ready skills and a verifiable credential from respected universities and companies. Learners commonly transition into roles in project management, UX design, and data science through programs such as the Google Project Management Professional Certificate, the Google UX Design Professional Certificate, and the IBM Data Science Professional Certificate. Others enter technical fields by starting with beginner-friendly Python or generative AI courses.",
+    },
+    {
+      id: 3,
+      question: "What are most popular courses on Coursera?",
+      answer:
+        "Coursera’s best-known courses and certificates are offered by leading universities and companies in the fields of AI, data science, cybersecurity, and software engineering. Many learners begin with the Machine Learning Specialization or the Deep Learning Specialization. In contrast, others opt for job-aligned pathways, such as the Google Cybersecurity Professional Certificate or the AI Engineer Professional Certificate. You can also browse broad areas, such as artificial intelligence, SQL, or web development, to find highly rated options.",
+    },
+    {
+      id: 4,
+      question: "Does Coursera offer free online courses?",
+      answer:
+        "Yes. Coursera offers thousands of courses that you can preview for free, including access to the first module, allowing you to explore the content before committing. Learners who want full course access or a certificate can join with a 7-day free trial through Coursera Plus or a subscription-based program. Many learners begin with introductory topics, such as Python, digital marketing, or English speaking, and later move into job-focused programs, like the Google IT Support Professional Certificate, when they’re ready to complete a credential .",
+    },
+    {
+      id: 5,
+      question: "How can Coursera help me get a job or advance my carrer?",
+      answer:
+        "Coursera offers job-aligned Professional Certificates and Specializations designed in collaboration with employers and universities to help learners qualify for roles in fields such as cybersecurity, UX, data analytics, AI, and business. Programs such as the Google Cybersecurity Professional Certificate, the Data Analysis with Python Specialization, and the UI/UX Design Specialization help learners build employer-relevant skills. At the same time, many career changers explore areas such as product management or business analysis as pathways into business and technology roles. Coursera also offers online bachelor’s and master’s degrees from accredited universities, which can support long-term career advancement in business, computer science, data, and other high-growth fields. Learners exploring formal education pathways can browse online degrees or view available bachelor’s programs to find a degree aligned to their career goals.",
     },
   ];
 
@@ -68,9 +106,8 @@ const PromoBanners = () => {
         {promoSlides.map((slide) => (
           <div
             key={slide.id}
-            className="relative rounded-[26px] overflow-hidden h-[320px] lg:min-h-[280px]"
+            className="relative rounded-[26px] overflow-hidden h-[320px]"
           >
-            {/* IMAGE */}
             <picture>
               <source media="(min-width:1024px)" srcSet={slide.imageDesktop} />
               <img
@@ -80,17 +117,14 @@ const PromoBanners = () => {
               />
             </picture>
 
-            {/* CONTENT */}
-            <div className="relative z-10 p-4 sm:p-6 lg:p-10 text-black max-w-[85%] lg:max-w-[75%]">
-              <p className="text-lg sm:text-xl lg:text-3xl font-semibold leading-snug">
+            <div className="relative z-10 p-6 text-black max-w-[75%]">
+              <p className="text-xl lg:text-3xl font-semibold">
                 {slide.title}
               </p>
-
-              <p className="mt-2 text-sm lg:text-base text-gray-800">
+              <p className="mt-2 text-sm text-gray-800">
                 {slide.subtitle}
               </p>
-
-              <button className="btn btn-primary mt-3 text-sm lg:mt-4">
+              <button className="btn btn-primary mt-4">
                 {slide.button}
               </button>
             </div>
@@ -98,34 +132,64 @@ const PromoBanners = () => {
         ))}
       </div>
 
-      {/* ================= WHY PEOPLE CHOOSE COURSERA ================= */}
+      {/* ================= TESTIMONIALS ================= */}
       <div className="max-w-7xl mx-auto">
-        <span className="text-2xl font-semibold p-6">
+        <h2 className="text-2xl font-semibold mb-4">
           Why people choose Coursera
-        </span>
+        </h2>
 
-        <div className="grid grid-cols-1  mt-3 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {testimonials.map((item) => (
             <div
               key={item.id}
-              className="bg-white border border-gray-200 rounded-xl p-3 flex flex-col"
+              className="bg-white border rounded-xl p-4"
             >
-              {/* PROFILE */}
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-3">
                 <img
                   src={item.image}
-                  alt={item.name}
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="w-12 h-12 rounded-full"
                 />
-                <p className="font-medium text-gray-900">
-                  {item.name}
-                </p>
+                <p className="font-medium">{item.name}</p>
               </div>
-
-              {/* TEXT */}
-              <p className="text-gray-700 text-sm leading-relaxed">
+              <p className="text-sm text-gray-700">
                 “{item.text}”
               </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ================= FAQ SECTION ================= */}
+      <div className="max-w-7xl mx-auto mt-14">
+        <h2 className="text-2xl font-semibold mb-6">
+          Frequently asked questions
+        </h2>
+
+        <div className="space-y-3">
+          {faqData.map((faq) => (
+            <div
+              key={faq.id}
+              className="border-bottom   bg-gray-50"
+            >
+              <button
+                onClick={() =>
+                  setActiveFaq(activeFaq === faq.id ? null : faq.id)
+                }
+                className="w-full flex justify-between items-center px-5 py-3 font-semibold  rounded-[30 px] hover:bg-blue-100"
+              >
+                {faq.question}
+                {activeFaq === faq.id ? (
+                  <ChevronUp />
+                ) : (
+                  <ChevronDown />
+                )}
+              </button>
+
+              {activeFaq === faq.id && (
+                <div className="px-5 pb-4 text-sm  font-medium text-gray-700">
+                  {faq.answer}
+                </div>
+              )}
             </div>
           ))}
         </div>
