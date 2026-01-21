@@ -9,6 +9,7 @@ import WhyCoursera from "../components/WhyCoursera";
 import IndustryCertificate from "../components/IndustryCertificate";
 import PopularCategory from "../components/PopularCategory";
 import PromoBanners from "../components/PromoBanners";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (<>
@@ -25,7 +26,7 @@ const Home = () => {
       <div style={{paddingTop : "20px"}}> <IndustryCertificate /></div>
       <div style={{paddingTop : "20px"}}> <PopularCategory /></div>
      <div style={{paddingTop : "20px"}}> <PromoBanners /></div>
-  
+    <Footer />
     </div>
          </div>
     </>

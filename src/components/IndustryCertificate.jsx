@@ -76,14 +76,14 @@ const IndustryCertificate = () => {
   };
 
   return (
-    <section className="w-full px-3 py-10">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-full px-3 ">
+      <div className="max-w-7xl mx-auto ">
         
         {/* Gradient Container */}
-        <div className="rounded-[28px] bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 px-3 sm:px-6 py-6">
+        <div className="rounded-[28px] bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500 p-3 sm:px-6 ">
 
           {/* Header */}
-          <p className="text-white text-lg md:text-xl font-semibold mb-4">
+          <p className="text-white text-lg md:text-xl font-semibold pt-3 " >
             Prepare for an industry certification exam →
           </p>
         
@@ -96,7 +96,7 @@ const IndustryCertificate = () => {
               show={showArrows}
               onClick={scrollLeft}
             />
-                         
+  
             {/* ➡ Arrow */}
             <ArrowButton
               direction="right"

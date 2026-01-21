@@ -113,32 +113,33 @@ const PromoBanners = () => {
               <img
                 src={slide.imageMobile}
                 alt={slide.title}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover  "
               />
             </picture>
 
-            <div className="relative z-10 p-6 text-black max-w-[75%]">
-              <p className="text-xl lg:text-3xl font-semibold">
-                {slide.title}
-              </p>
-              <p className="mt-2 text-sm text-gray-800">
-                {slide.subtitle}
-              </p>
-              <button className="btn btn-primary mt-4">
-                {slide.button}
-              </button>
-            </div>
+          <div className="absolute z-10 left-8 top-8 text-black max-w-[75%]">
+  <p className="text-xl lg:text-3xl font-semibold whitespace-pre-line">
+    {slide.title}
+  </p>
+  <p className="mt-2 text-sm text-gray-800 hidden md:block">
+    {slide.subtitle}
+  </p>
+  <button className="btn btn-primary mt-4">
+    {slide.button}
+  </button>
+</div>
+
           </div>
         ))}
       </div>
 
       {/* ================= TESTIMONIALS ================= */}
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl font-semibold mb-4">
+        <h2 className="text-2xl font-semibold mt-3">
           Why people choose Coursera
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-3">
           {testimonials.map((item) => (
             <div
               key={item.id}
@@ -160,10 +161,10 @@ const PromoBanners = () => {
       </div>
 
       {/* ================= FAQ SECTION ================= */}
-      <div className="max-w-7xl mx-auto mt-14">
-        <h2 className="text-2xl font-semibold mb-6">
+      <div className="max-w-7xl  p-3">
+        <span className="text-2xl font-semibold mb-6  pointer-events-none ">
           Frequently asked questions
-        </h2>
+        </span >
 
         <div className="space-y-3">
           {faqData.map((faq) => (
@@ -171,22 +172,25 @@ const PromoBanners = () => {
               key={faq.id}
               className="border-bottom   bg-gray-50"
             >
-              <button
-                onClick={() =>
-                  setActiveFaq(activeFaq === faq.id ? null : faq.id)
-                }
-                className="w-full flex justify-between items-center px-5 py-3 font-semibold  rounded-[30 px] hover:bg-blue-100"
-              >
-                {faq.question}
-                {activeFaq === faq.id ? (
-                  <ChevronUp />
-                ) : (
-                  <ChevronDown />
-                )}
-              </button>
+          <button
+  onClick={() =>
+    setActiveFaq(activeFaq === faq.id ? null : faq.id)
+  }
+  className="w-full flex items-center gap-3 px-4 py-3 font-semibold rounded-lg hover:bg-blue-100 rounded-lg"
+>
+  {activeFaq === faq.id ? (
+    <ChevronUp />
+  ) : (
+    <ChevronDown />
+  )}
+
+  <span className="text-left bg-transparent pointer-events-none">
+    {faq.question}
+  </span>
+</button>
 
               {activeFaq === faq.id && (
-                <div className="px-5 pb-4 text-sm  font-medium text-gray-700">
+                <div className="px-3 pb-4 text-sm  font-medium text-gray-700">
                   {faq.answer}
                 </div>
               )}
@@ -194,6 +198,16 @@ const PromoBanners = () => {
           ))}
         </div>
       </div>
+
+
+ <div className="mt-9">
+  <p className="text-base p-3 ">
+    ¹ Median salary and job opening data are sourced from Lightcast™ Job Postings Report <br /> 
+    Content Creator, Machine Learning Engineer and Salesforce Development Representative<br /> (1/1/2024 - 31/12/2024)<br />
+    All other job roles (1/1/2025 - 1/1/2026)
+  </p>
+</div>
+
     </section>
   );
 };

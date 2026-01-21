@@ -80,10 +80,10 @@ const HotRelease = () => {
       <div className="max-w-7xl mx-auto">
 
         {/* Gradient Container */}
-        <div className="rounded-[28px] bg-gradient-to-r from-blue-600 via-sky-500 to-emerald-400 px-3 sm:px-6 py-6">
+        <div className="rounded-[28px] bg-gradient-to-r from-blue-600 via-sky-500 to-emerald-400 p-3 sm:px-6 py-6">
 
           {/* Header */}
-          <p className="text-white text-lg md:text-xl font-semibold mb-4 cursor-pointer hover:underline">
+          <p className="text-white text-lg md:text-xl font-semibold mb-2 cursor-pointer hover:underline p-3">
             Hot new releases →
           </p>
 
