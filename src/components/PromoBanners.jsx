@@ -100,9 +100,9 @@ const PromoBanners = () => {
   ];
 
   return (
-    <section className="w-full px-3 mt-5">
+    <section className="w-full px-3 ">
       {/* ================= PROMO BANNERS ================= */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 py-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 py-5   ">
         {promoSlides.map((slide) => (
           <div
             key={slide.id}
@@ -200,8 +200,8 @@ const PromoBanners = () => {
       </div>
 
 
- <div className="mt-9">
-  <p className="text-base p-3 ">
+ <div className="mt-6">
+  <p className="text-base px-3">
     ¹ Median salary and job opening data are sourced from Lightcast™ Job Postings Report <br /> 
     Content Creator, Machine Learning Engineer and Salesforce Development Representative<br /> (1/1/2024 - 31/12/2024)<br />
     All other job roles (1/1/2025 - 1/1/2026)

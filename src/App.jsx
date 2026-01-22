@@ -1,23 +1,21 @@
-import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import "./App.css";
+import CareerLaunch from "./pages/CareerLaunch";
+import CareerSkills from "./pages/CarreerSkiils";
+import CareerDegree from "./pages/CareerDegree";
 
 function App() {
   return (
-    <>
-      {/* FULL WIDTH NAVBAR */}
+    <BrowserRouter>
       <Navbar />
-
-      {/* PAGE CONTENT */}
-      <Home />
-
-
-    
-
-
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/career/launch" element={<CareerLaunch />} />
+        <Route path="/career/skills" element={<CareerSkills />} />
+        <Route path="/career/degree" element={<CareerDegree />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 export default App;
-

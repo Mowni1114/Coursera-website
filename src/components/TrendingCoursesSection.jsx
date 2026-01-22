@@ -42,7 +42,7 @@ const TrendingCoursesSection = () => {
   };
 
   return (
-    <div className="relative w-full px-2 lg:container lg:mx-auto my-6 pb-24 pt-1">
+    <div className="relative w-full px-2 lg:container lg:mx-auto my-6 pt-1">
       <p className="text-2xl font-semibold mb-4">Trending courses</p>
 
       {/* arrows only for mobile / tablet */}

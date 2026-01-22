@@ -49,7 +49,7 @@ const mentorsData = [
 
 function Mentors() {
   return (
-    <section className="w-full max-w-[1400px] mx-auto px-3 py-12">
+    <section className="w-full max-w-[1400px] mx-auto px-3 py-1">
 
       {/* ================= Explore Careers ================= */}
       <div className="mb-16">
@@ -73,13 +73,16 @@ function Mentors() {
             <div
               key={item.id}
               className={`
-                bg-white border border-slate-200 rounded-xl
-                flex flex-col
-                hover:shadow-lg hover:scale-[1.02] transition
-                flex-shrink-0
-                w-[240px] md:w-auto
-                ${index === 3 ? "md:hidden lg:block" : ""}
-              `}
+  bg-white border border-slate-200 rounded-xl box-border
+  flex flex-col
+  hover:shadow-lg hover:scale-[1.02] hover:border-slate-400
+  transition-[border-color,box-shadow,transform] duration-300 ease-in-out
+  flex-shrink-0
+  w-[240px] md:w-auto
+  ${index === 3 ? "md:hidden lg:block" : ""}
+`}
+
+
             >
               <div className="p-2">
                 <img

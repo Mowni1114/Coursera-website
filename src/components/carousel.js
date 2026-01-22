@@ -10,8 +10,7 @@ const carouselData = [
     image: carousel1,
     title: "Start, switch, or advance \nyour career",
     subtitle: "Grow with 10,000+ courses",
-    buttonText: "Join for Free →",
-    
+    buttonText: "Join for Free →",  
   },
   {
     id: 2,

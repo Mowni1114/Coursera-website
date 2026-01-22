@@ -11,7 +11,7 @@ import gpay from "../assets/gpay.png";
 import B from "../assets/B.png";
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 mt-20 text-gray-900">
+    <footer className="bg-gray-100 mt-2 text-gray-900">
       {/* ================= TOP LINKS ================= */}
       <div className="max-w-7xl mx-auto px-4 py-14">
        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-10 text-sm md:text-xs">

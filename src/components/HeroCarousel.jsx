@@ -14,20 +14,12 @@ const handleScroll = () => {
   setCurrentIndex(index);
 };
 
-const goToSlide = (index) => {
-  scrollRef.current.scrollTo({
-    left: index * window.innerWidth,
-    behavior: "smooth",
-  });
-  setCurrentIndex(index);
-};
+
 
 
   return (
     <div className="scroll-wrapper pb-3">
     
-        
-        
         <ArrowButton
           direction="left"
           show={currentIndex > 0}

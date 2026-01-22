@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./CareerSection.css";
+import { useNavigate } from "react-router-dom";
+
 
 import ArrowButton from "./ArrowButton";
 
@@ -19,10 +21,12 @@ import University from "../assets/University.png";
 import Michigan from "../assets/Michigan.png";
 
 const CareerSection = () => {
+  const navigate = useNavigate();
+
   const careerScrollRef = useRef(null);
   const logoScrollRef = useRef(null);
   const [canCareerLeft, setCanCareerLeft] = useState(false);
-const [canCareerRight, setCanCareerRight] = useState(false);
+  const [canCareerRight, setCanCareerRight] = useState(false);
 
 
   const [showCareerArrows, setShowCareerArrows] = useState(false);
@@ -141,21 +145,30 @@ useEffect(() => {
 
 
           <div className="col-10 col-md-4">
-            <div className="career-card p-3">
-              <h5 className="mb-0 fw-semibold">Launch a new career</h5>
-              <img src={Union} alt="" className="career-icon" />
-            </div>
-          </div>
+  <div
+    className="career-card p-3"
+    onClick={() => navigate("/career/launch")}
+    style={{ cursor: "pointer" }}
+  >
+    <h5 className="mb-0 fw-semibold">Launch a new career</h5>
+    <img src={Union} alt="" className="career-icon" />
+  </div>
+</div>
+
 
           <div className="col-10 col-md-4">
-            <div className="career-card p-3">
+            <div className="career-card p-3"
+              onClick={() => navigate("/career/skills")} 
+              style={{cursor:"pointer"}} >
               <h5 className="mb-0 fw-semibold">Gain in-demand skills</h5>
               <img src={Certificate} alt="" className="career-icon" />
             </div>
           </div>
 
           <div className="col-10 col-md-4">
-            <div className="career-card p-3">
+            <div className="career-card p-3"
+              onClick={() => navigate("/career/degree")}
+                style={{cursor:"pointer"}}>
               <h5 className="mb-0 fw-semibold">Earn a degree</h5>
               <img src={Cap} alt="" className="career-icon" />
             </div>

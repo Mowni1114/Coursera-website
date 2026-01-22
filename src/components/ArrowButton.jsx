@@ -16,10 +16,10 @@ const ArrowButton = ({ direction, show, onClick, style }) => {
     justifyContent: "center",
     left: direction === "left" ? "-6px" : undefined,
     right: direction === "right" ? "-6px" : undefined,
-    top: "58%", // default top
+    top: "58%", 
   };
 
-  // ✅ merge inline style prop
+
   const mergedStyle = { ...baseStyle, ...style };
 
   return (

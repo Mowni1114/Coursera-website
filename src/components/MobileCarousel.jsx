@@ -31,20 +31,17 @@ import mobile3 from "../assets/mobile3.png";
   return (
     <div className="m-scroll-wrapper pb-1">
 
-   <ArrowButton
+<ArrowButton
   direction="left"
-  scrollContainerRef={scrollRef}
+  show={currentIndex > 0}
   onClick={() => goToSlide(currentIndex - 1)}
 />
 
 <ArrowButton
   direction="right"
-  scrollContainerRef={scrollRef}
+  show={currentIndex < images.length - 1}
   onClick={() => goToSlide(currentIndex + 1)}
 />
-
-
-
       {/* SLIDER */}
       <div
         className="m-scroll-container"
@@ -89,10 +86,6 @@ import mobile3 from "../assets/mobile3.png";
           </div>
         </div>
       </div>
-
-  
-
-
       {/* DOTS */}
       <div className="m-dots-wrapper">
         {images.map((_, i) => (

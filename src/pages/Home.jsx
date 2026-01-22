@@ -19,15 +19,15 @@ const Home = () => {
       <ResponsiveCarousel />
       <CareerSection />
       <TrendingCoursesSection />
-      <div >   <ExploreCategories /></div>
-      <div style={{paddingTop : "20px"}}> <HotRelease />
-      <div style={{paddingTop : "20px"}}><Mentors /></div>
-      <div style={{paddingTop : "20px"}}> <WhyCoursera /></div>
-      <div style={{paddingTop : "20px"}}> <IndustryCertificate /></div>
-      <div style={{paddingTop : "20px"}}> <PopularCategory /></div>
-     <div style={{paddingTop : "20px"}}> <PromoBanners /></div>
+      <ExploreCategories />
+ <HotRelease />
+      <Mentors />
+      <WhyCoursera />
+   <IndustryCertificate />
+     <PopularCategory />
+     <PromoBanners />
     <Footer />
-    </div>
+   
          </div>
     </>
   );
