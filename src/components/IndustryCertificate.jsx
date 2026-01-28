@@ -76,7 +76,7 @@ const IndustryCertificate = () => {
   };
 
   return (
-    <section className="w-full px-3 ">
+    <section className="w-full px-3 mt-6 ">
       <div className="max-w-7xl mx-auto ">
         
         {/* Gradient Container */}

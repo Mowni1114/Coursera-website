@@ -79,6 +79,8 @@ function Mentors() {
   transition-[border-color,box-shadow,transform] duration-300 ease-in-out
   flex-shrink-0
   w-[240px] md:w-auto
+
+  
   ${index === 3 ? "md:hidden lg:block" : ""}
 `}
 
