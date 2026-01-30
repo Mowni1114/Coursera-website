@@ -341,3 +341,55 @@ export const careers = [
     ]
   },
 ];
+export const careerResources = [
+  {
+    category: "General",
+    title: "What Does a Data Analyst Do? Your 2026 Career Guide",
+    desc:
+      "A data analyst collects, cleans, and interprets data sets in order to answer a question or solve a problem. They work in many industries, including business, finance, criminal justice, science, medicine, and government.",
+
+  },
+  {
+    category: "General",
+    title: "What Is a Project Manager? A Career Guide",
+    desc:
+      "A project manager is a professional who organizes, plans, and executes projects while working within restraints like budgets and schedules.",
+
+  },
+  {
+    category: "General",
+    title: "What Does a Web Developer Do (and How Do I Become One)?",
+    desc:
+      "A web developer's job is to create websites. While their primary role is to ensure the website is visually appealing and easy to navigate, many web developers are also responsible for the website's performance and capacity.",
+
+  },
+  {
+    category: "General",
+    title: "What Does a UX Designer Do?",
+    desc:
+      "Anytime you interact with a product or service, you have a user experience. This might entail navigating a mobile app, browsing a website, interacting with a physical product (like trying out a new running shoe), or taking advantage of a service (checking into a hotel or using public transportation for example).",
+  
+  },
+  {
+    category: "General",
+    title: "What Is a Data Scientist? Salary, Skills, and How to Become One?",
+    desc:
+      "Working as a data scientist can be intellectually challenging, analytically satisfying, and put you at the forefront of new technological advances. Data scientists have become more common and in demand, as big data continues to be increasingly important to the way organizations make decisions.",
+  
+  },
+  {
+    category: "General",
+    title: "What Is a Cyber Security ? deinition and Industry guide?",
+   desc:
+  "Cybersecurity is the field of technology that focuses on protecting computer systems, networks, mobile devices, and sensitive information from digital attacks. It involves preventing unauthorized access, detecting potential threats, and responding to cyber incidents. Cybersecurity ensures the safety of personal data, business information, and online activities by using security tools, encryption, firewalls, and monitoring techniques.",
+  
+  },
+    {
+    category: "General",
+    title: "What Does a Software Developer Do? Career Overview + Outlook",
+    desc:
+      "Software systems are an integral part of nearly every modern industry. As a result, you can pursue a software development career in almost any field that aligns with your interests or passions.",
+
+  },
+];
+

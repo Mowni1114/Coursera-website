@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { careers } from "../data/careerData";
+import { careers,careerResources } from "../data/careerData";
+import WhyCoursera from "../components/WhyCoursera";
+
 
 const CareerLaunch = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -10,6 +12,23 @@ const CareerLaunch = () => {
       : careers.filter(
           (career) => career.category === activeCategory
         );
+
+const resourceTabs = [
+  { key: "General", label: "General" },
+  { key: "Skills", label: "Skills" },
+  { key: "Career advice", label: "Career advice" },
+  { key: "Career path planning", label: "Career path planning" },
+];
+
+const [activeResourceTab, setActiveResourceTab] = useState("General");
+
+const filteredResources =
+  activeResourceTab === "General"
+    ? careerResources
+    : careerResources.filter(
+        (r) => r.category === activeResourceTab
+      );
+
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
@@ -145,7 +164,7 @@ const CareerLaunch = () => {
                           alt={cred.name}
                           className="w-6 h-6 object-contain"
                         />
-                        <div>{cred.name}</>
+                        <div>{cred.name}</div>
                       </div>
                     ))}
                   </div>
@@ -155,6 +174,75 @@ const CareerLaunch = () => {
           </div>
         ))}
       </div>
+          <div className="mt-12">
+      <WhyCoursera />
+    </div>
+
+    {/* ================= CAREER RESOURCES ================= */}
+<div className="mt-20">
+  {/* Heading */}
+  <h2 className="text-3xl font-semibold mb-6">
+    Career resources
+  </h2>
+
+  {/* Tabs */}
+  <div
+    className="
+      flex gap-3 mb-10
+      overflow-x-auto whitespace-nowrap
+      scrollbar-hide
+      md:flex-wrap md:overflow-visible
+    "
+  >
+    {resourceTabs.map((tab) => (
+      <button
+        key={tab.key}
+        onClick={() => setActiveResourceTab(tab.key)}
+        className={`px-4 py-2 rounded-full text-sm font-medium border transition
+          ${
+            activeResourceTab === tab.key
+              ? "bg-gray-800 text-white"
+              : "bg-white hover:bg-gray-100"
+          }`}
+      >
+        {tab.label}
+      </button>
+    ))}
+  </div>
+
+  {/* Cards */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {filteredResources.map((item, i) => (
+      <div
+        key={i}
+        className="
+          border rounded-2xl bg-white
+          p-3
+          transition-all duration-300
+          hover:shadow-2xl hover:-translate-y-1
+        "
+      >
+        {/* Title */}
+        <div className="text-base font-semibold leading-snug mb-3">
+          {item.title}
+        </div>
+
+        {/* Description */}
+        <p className="text-sm text-gray-600 mb-8">
+          {item.desc}
+        </p>
+
+        {/* Meta */}
+        <p className="text-sm text-gray-500">
+          {item.date}
+          {item.readTime && ` · ${item.readTime}`}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
+
+
     </div>
   );
 };
