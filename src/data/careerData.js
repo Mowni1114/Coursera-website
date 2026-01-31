@@ -343,53 +343,89 @@ export const careers = [
 ];
 export const careerResources = [
   {
-    category: "General",
+    category: "Career advice",
     title: "What Does a Data Analyst Do? Your 2026 Career Guide",
     desc:
       "A data analyst collects, cleans, and interprets data sets in order to answer a question or solve a problem. They work in many industries, including business, finance, criminal justice, science, medicine, and government.",
 
   },
+
   {
-    category: "General",
+    category: "Career advice",
     title: "What Is a Project Manager? A Career Guide",
     desc:
       "A project manager is a professional who organizes, plans, and executes projects while working within restraints like budgets and schedules.",
 
   },
   {
-    category: "General",
+    category: "Career advice",
     title: "What Does a Web Developer Do (and How Do I Become One)?",
     desc:
       "A web developer's job is to create websites. While their primary role is to ensure the website is visually appealing and easy to navigate, many web developers are also responsible for the website's performance and capacity.",
 
   },
   {
-    category: "General",
+    category: "Career path planning",
     title: "What Does a UX Designer Do?",
     desc:
       "Anytime you interact with a product or service, you have a user experience. This might entail navigating a mobile app, browsing a website, interacting with a physical product (like trying out a new running shoe), or taking advantage of a service (checking into a hotel or using public transportation for example).",
   
   },
   {
-    category: "General",
+    category: "Career advice",
     title: "What Is a Data Scientist? Salary, Skills, and How to Become One?",
     desc:
       "Working as a data scientist can be intellectually challenging, analytically satisfying, and put you at the forefront of new technological advances. Data scientists have become more common and in demand, as big data continues to be increasingly important to the way organizations make decisions.",
   
   },
   {
-    category: "General",
+    category: "Career path planning",
     title: "What Is a Cyber Security ? deinition and Industry guide?",
    desc:
   "Cybersecurity is the field of technology that focuses on protecting computer systems, networks, mobile devices, and sensitive information from digital attacks. It involves preventing unauthorized access, detecting potential threats, and responding to cyber incidents. Cybersecurity ensures the safety of personal data, business information, and online activities by using security tools, encryption, firewalls, and monitoring techniques.",
   
   },
     {
-    category: "General",
+    category: "Career path planning",
     title: "What Does a Software Developer Do? Career Overview + Outlook",
     desc:
       "Software systems are an integral part of nearly every modern industry. As a result, you can pursue a software development career in almost any field that aligns with your interests or passions.",
 
   },
-];
+    {
+    category: "Career path planning",
+    title: "What Is a Social Media Marketer?And How to Become One",
+    desc:
+      "Social media marketers are marketing specialists who use social media platforms to promote a company's offerings. They often use platforms like Facebook, Instagram, Twitter, and TikTok to reach new customers, engage with current ones, and announce new products or services.",
+
+  },
+    {
+    category: "Skills",
+    title: "Data Visualization: Definition, Benefits, and Examples",
+    desc:
+      "Data visualization is a powerful way for people, especially data professionals, to display data so that it can be interpreted easily. It helps tell a story with data, by turning spreadsheets of numbers into stunning graphs and charts.",
+
+  },
+    {
+    category: "Skills",
+    title: "12 Key Project Management Skills",
+    desc:
+      "Project management skills enable you to effectively interact with people, solve problems, and put your organizational talents to use. Project management requires a combination of technical and workplace skills to coordinate both projects and teams.",
+  },
+    {
+    category: "Skills",
+    title: "9 Essential Skills for UX Designers in 2026",
+    desc:
+      "It's an exciting time to get started in user experience (UX) design. Popular job site Glassdoor listed UX designer as one of their 50 Best Jobs in America for 2022 based on job satisfaction, earning potential, and job openings.",
+  },
+    {
+    category: "Skills",
+    title: "Marketing Strategy: What It Is and How to Create One",
+    desc:
+      "A marketing strategy is a long-term vision outlining a business's value proposition to its customers. Rather than describing the concrete actions required in specific advertising campaigns, marketing strategies are a compass used to guide marketing efforts.",
+    },
+
+    ];
+
+
 

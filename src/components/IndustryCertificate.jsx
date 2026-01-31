@@ -8,7 +8,7 @@ import ie3 from "../assets/ie3.png";
 import ie4 from "../assets/ie4.png";
 
 /* Provider Logos */
-import microsoft from "../assets/microsoft.png";
+import Microsoft from "../assets/Microsoft.png";
 import aws from "../assets/aws.png";
 import nasm from "../assets/nasm.png";
 import learnkarts from "../assets/learnkarts.png";
@@ -17,7 +17,7 @@ const certData = [
   {
     id: 1,
     image: ie1,
-    logo: microsoft,
+    logo: Microsoft,
     provider: "Microsoft",
     title: "Microsoft Project Management: Build Job-Ready Skills",
     type: "Professional Certificate",

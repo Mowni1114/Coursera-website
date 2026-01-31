@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { careers,careerResources } from "../data/careerData";
+import React, { useState, useEffect } from "react";
+import { careers, careerResources } from "../data/careerData";
 import WhyCoursera from "../components/WhyCoursera";
-
 
 const CareerLaunch = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -9,30 +8,30 @@ const CareerLaunch = () => {
   const filteredCareers =
     activeCategory === "all"
       ? careers
-      : careers.filter(
-          (career) => career.category === activeCategory
-        );
+      : careers.filter((career) => career.category === activeCategory);
 
-const resourceTabs = [
-  { key: "General", label: "General" },
-  { key: "Skills", label: "Skills" },
-  { key: "Career advice", label: "Career advice" },
-  { key: "Career path planning", label: "Career path planning" },
-];
+  const resourceTabs = [
+    { key: "General", label: "General" },
+    { key: "Skills", label: "Skills" },
+    { key: "Career advice", label: "Career advice" },
+    { key: "Career path planning", label: "Career path planning" },
+  ];
 
-const [activeResourceTab, setActiveResourceTab] = useState("General");
+  const [activeResourceTab, setActiveResourceTab] = useState("General");
 
-const filteredResources =
-  activeResourceTab === "General"
-    ? careerResources
-    : careerResources.filter(
-        (r) => r.category === activeResourceTab
-      );
+  const filteredResources =
+    activeResourceTab === "General"
+      ? careerResources
+      : careerResources.filter((r) => r.category === activeResourceTab);
 
+  const [visibleCount, setVisibleCount] = useState(4);
+
+  useEffect(() => {
+    setVisibleCount(4);
+  }, [activeResourceTab]);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
-
       {/* Heading */}
       <div className="text-3xl sm:text-4xl font-semibold mb-3">
         Explore roles
@@ -44,15 +43,7 @@ const filteredResources =
       </p>
 
       {/* Category Pills */}
-      <div   className="
-    flex gap-3 mb-10
-    overflow-x-auto whitespace-nowrap
-    scrollbar-hide
-    md:flex-wrap md:overflow-visible
-    [&::-webkit-scrollbar]:hidden
-    [scrollbar-width:none]
-    [-ms-overflow-style:none]
-  ">
+      <div className="flex gap-3 mb-10 overflow-x-auto whitespace-nowrap md:flex-wrap">
         {[
           { key: "all", label: "All" },
           { key: "software", label: "Software Engineering & IT" },
@@ -63,7 +54,7 @@ const filteredResources =
           <div
             key={cat.key}
             onClick={() => setActiveCategory(cat.key)}
-            className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition
+            className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium cursor-pointer
               ${
                 activeCategory === cat.key
                   ? "bg-gray-800 text-white"
@@ -75,130 +66,125 @@ const filteredResources =
         ))}
       </div>
 
-      {/* Career Cards */}
+      {/* ================== CAREER CARDS (RESPONSIVE FIXED) ================== */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {filteredCareers.map((c, i) => (
-          <div
-            key={i}
-            className="
-              border rounded-2xl bg-white
-              p-3
-              transition-all duration-300
-              hover:shadow-2xl hover:-translate-y-1
-              hover:border-gray-300
+  {filteredCareers.map((c, i) => (
+    <div
+      key={i}
+      className="
+        border rounded-2xl bg-white
+        p-3
+        transition-all duration-300
+        hover:shadow-xl
+        flex  items-center gap-1
+        sm:block
+      "
+    >
+      {/* ================= MOBILE VIEW ================= */}
+      <div className="flex-1 sm:hidden">
+        <div className="text-base font-semibold mb-1 ">
+          {c.title}
+        </div>
 
-              flex items-start gap-3
-              sm:block
-            "
-          >
-            {/* TEXT CONTENT */}
-            <div className="flex-1">
-              <div className="text-base sm:text-xl font-semibold mb-1">
-                {c.title}
-              </div>
+        <p className="text-sm text-gray-600 ">
+          {c.desc}
+        </p>
+      </div>
 
-              <p className="text-xs sm:text-sm text-gray-600 mb-2">
-                {c.desc}
-              </p>
+      {/* IMAGE (RIGHT SIDE IN MOBILE) */}
+      <div
+        className="
+          w-18 h-20
+          sm:w-full sm:h-[160px]
+          rounded-xl overflow-hidden bg-gray-100
+          flex-shrink-0
+          sm:mb-3
+        "
+      >
+        <img
+          src={c.img}
+          alt={c.title}
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-              {/* Salary – visible everywhere */}
-              <div className="flex items-center gap-[4px] text-xs sm:text-sm text-gray-500">
-                <div className="font-bold text-gray-800">
-                  {c.salary}
-                </div>
-                <div>median salary</div>
-              </div>
-            </div>
+      {/* ================= DESKTOP VIEW (UNCHANGED) ================= */}
+      <div className="hidden sm:block">
+        <div className="text-lg font-semibold mb-2">
+          {c.title}
+        </div>
 
-            {/* IMAGE */}
-            <div
-              className="
-                w-16 h-16
-                sm:w-full sm:h-[160px]
-                flex-shrink-0
-                rounded-xl overflow-hidden bg-gray-100
-                sm:mb-3
-              "
-            >
-              <img
-                src={c.img}
-                alt={c.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
+        <p className="text-sm text-gray-600 mb-3">
+          {c.desc}
+        </p>
 
-            {/* DESKTOP / TAB EXTRA CONTENT */}
-            <div className="hidden sm:block p-2">
-              {c.like && (
-                <div className="text-sm mb-3">
-                  <div className="font-semibold">
-                    If you like:
-                  </div>
-                  <div className="text-gray-600">
-                    {c.like.join(", ")}
-                  </div>
-                </div>
-              )}
-
-              <div className="flex items-center gap-[4px] text-sm text-gray-500 mb-2">
-                <div className="font-bold text-gray-800">
-                  {c.jobs}
-                </div>
-                <div>jobs available</div>
-              </div>
-
-              {c.credentials && (
-                <>
-                  <p className="text-sm font-semibold mb-2">
-                    Credentials
-                  </p>
-
-                  <div className="space-y-2">
-                    {c.credentials.slice(0, 2).map((cred, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2 text-sm text-blue-600"
-                      >
-                        <img
-                          src={cred.logo}
-                          alt={cred.name}
-                          className="w-6 h-6 object-contain"
-                        />
-                        <div>{cred.name}</div>
-                      </div>
-                    ))}
-                  </div>
-                </>
-              )}
+        {c.like && (
+          <div className="text-sm mb-3">
+            <div className="font-semibold">If you like:</div>
+            <div className="text-gray-600">
+              {c.like.join(", ")}
             </div>
           </div>
-        ))}
+        )}
+
+        <div className="text-sm text-gray-500 mb-2">
+          <span className="font-semibold text-gray-800">
+            {c.salary}
+          </span>{" "}
+          median salary
+        </div>
+
+        <div className="text-sm text-gray-500 mb-3">
+          <span className="font-semibold text-gray-800">
+            {c.jobs}
+          </span>{" "}
+          jobs available
+        </div>
+
+        {c.credentials && (
+          <>
+            <p className="text-sm font-semibold mb-2">
+              Credentials
+            </p>
+            <div className="space-y-2">
+              {c.credentials.slice(0, 2).map((cred, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-2 text-sm text-blue-600"
+                >
+                  <img
+                    src={cred.logo}
+                    alt={cred.name}
+                    className="w-6 h-6 object-contain"
+                  />
+                  <span>{cred.name}</span>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
-          <div className="mt-12">
-      <WhyCoursera />
     </div>
+  ))}
+</div>
 
-    {/* ================= CAREER RESOURCES ================= */}
-<div className="mt-20">
-  {/* Heading */}
-  <h2 className="text-3xl font-semibold mb-6">
+
+      <div className="mt-12">
+        <WhyCoursera />
+      </div>
+
+      {/* ================= CAREER RESOURCES (UNCHANGED) ================= */}
+      <div className="mt-20">
+  <div className="text-3xl font-semibold mb-6">
     Career resources
-  </h2>
+  </div>
 
-  {/* Tabs */}
-  <div
-    className="
-      flex gap-3 mb-10
-      overflow-x-auto whitespace-nowrap
-      scrollbar-hide
-      md:flex-wrap md:overflow-visible
-    "
-  >
+  <div className="flex gap-3 mb-10 flex-wrap">
     {resourceTabs.map((tab) => (
       <button
         key={tab.key}
         onClick={() => setActiveResourceTab(tab.key)}
-        className={`px-4 py-2 rounded-full text-sm font-medium border transition
+        className={`px-4 py-2 rounded-full text-sm font-medium border
           ${
             activeResourceTab === tab.key
               ? "bg-gray-800 text-white"
@@ -210,29 +196,19 @@ const filteredResources =
     ))}
   </div>
 
-  {/* Cards */}
+  {/* CARDS GRID */}
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-    {filteredResources.map((item, i) => (
+    {filteredResources.slice(0, visibleCount).map((item, i) => (
       <div
         key={i}
-        className="
-          border rounded-2xl bg-white
-          p-3
-          transition-all duration-300
-          hover:shadow-2xl hover:-translate-y-1
-        "
+        className="border rounded-2xl bg-white p-3 hover:shadow-xl"
       >
-        {/* Title */}
-        <div className="text-base font-semibold leading-snug mb-3">
+        <div className="text-base font-semibold mb-3">
           {item.title}
         </div>
-
-        {/* Description */}
-        <p className="text-sm text-gray-600 mb-8">
+        <p className="text-sm text-gray-600 mb-6">
           {item.desc}
         </p>
-
-        {/* Meta */}
         <p className="text-sm text-gray-500">
           {item.date}
           {item.readTime && ` · ${item.readTime}`}
@@ -240,10 +216,33 @@ const filteredResources =
       </div>
     ))}
   </div>
+
+
+{/* 👇 SHOW MORE BUTTON */}
+{visibleCount < filteredResources.length && (
+  <div className="mt-10">
+    <button
+      onClick={() => setVisibleCount(prev => prev + 8)}
+      className="
+        px-6 py-2.5
+        border border-blue-600
+        text-blue-600
+        bg-white
+        rounded-[50px]
+        text-sm font-medium
+        hover:bg-blue-50
+        transition
+        width-[30px]
+      "
+    >
+      Show 8 more
+    </button>
+  </div>
+)}
+
 </div>
 
-
-    </div>
+    </div> 
   );
 };
 
