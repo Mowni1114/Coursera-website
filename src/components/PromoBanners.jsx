@@ -102,7 +102,7 @@ const PromoBanners = () => {
   return (
     <section className="w-full px-3 ">
       {/* ================= PROMO BANNERS ================= */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 py-5   ">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 py-4   ">
         {promoSlides.map((slide) => (
           <div
             key={slide.id}
@@ -135,7 +135,7 @@ const PromoBanners = () => {
 
       {/* ================= TESTIMONIALS ================= */}
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl font-semibold mt-3">
+        <h2 className="text-2xl font-semibold mt-2">
           Why people choose Coursera
         </h2>
 
@@ -161,43 +161,43 @@ const PromoBanners = () => {
       </div>
 
       {/* ================= FAQ SECTION ================= */}
-      <div className="max-w-7xl  p-3">
-        <span className="text-2xl font-semibold mb-6  pointer-events-none ">
-          Frequently asked questions
-        </span >
-
-        <div className="space-y-3">
-          {faqData.map((faq) => (
-            <div
-              key={faq.id}
-              className="border-bottom   bg-gray-50"
-            >
-          <button
-  onClick={() =>
-    setActiveFaq(activeFaq === faq.id ? null : faq.id)
-  }
-  className="w-full flex items-center gap-3 px-4 py-3 font-semibold rounded-lg hover:bg-blue-100 rounded-lg"
->
-  {activeFaq === faq.id ? (
-    <ChevronUp />
-  ) : (
-    <ChevronDown />
-  )}
-
-  <span className="text-left bg-transparent pointer-events-none">
-    {faq.question}
+      <div className="max-w-7xl p-3">
+  <span className="text-2xl font-semibold mb-6 pointer-events-none">
+    Frequently asked questions
   </span>
-</button>
 
-              {activeFaq === faq.id && (
-                <div className="px-3 pb-4 text-sm  font-medium text-gray-700">
-                  {faq.answer}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+  <div className="space-y-3">
+    {faqData.map((faq) => (
+      <div
+        key={faq.id}
+        className="border-bottom bg-gray-50"
+      >
+        <button
+          onClick={() =>
+            setActiveFaq(activeFaq === faq.id ? null : faq.id)
+          }
+          className="w-full flex items-center gap-3 px-4 py-3 font-semibold rounded-lg hover:bg-blue-100"
+        >
+          {activeFaq === faq.id ? (
+            <ChevronUp size={20} />   
+          ) : (
+            <ChevronDown size={20} /> 
+          )}
+
+          <span className="text-left bg-transparent pointer-events-none">
+            {faq.question}
+          </span>
+        </button>
+
+        {activeFaq === faq.id && (
+          <div className="px-3 pb-4 text-sm font-medium text-gray-700">
+            {faq.answer}
+          </div>
+        )}
       </div>
+    ))}
+  </div>
+</div>
 
 
  <div className="mt-6">

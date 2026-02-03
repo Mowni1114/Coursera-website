@@ -37,9 +37,9 @@ const PopularCategory = () => {
   };
 
   return (
-    <section className="relative w-full px-3 lg:container lg:mx-auto  pb-3 pt-1">
+    <section className="relative w-full px-3 lg:container lg:mx-auto  pb-3 pt-3">
       {/* SECTION TITLE */}
-      <p className="text-2xl font-semibold mb-2">
+      <p className="text-2xl font-semibold mb-2 mt-3">
         Most popular by category
       </p>
 

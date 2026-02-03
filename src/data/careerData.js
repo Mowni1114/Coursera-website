@@ -382,7 +382,7 @@ export const careerResources = [
     category: "Career path planning",
     title: "What Is a Cyber Security ? deinition and Industry guide?",
    desc:
-  "Cybersecurity is the field of technology that focuses on protecting computer systems, networks, mobile devices, and sensitive information from digital attacks. It involves preventing unauthorized access, detecting potential threats, and responding to cyber incidents. Cybersecurity ensures the safety of personal data, business information, and online activities by using security tools, encryption, firewalls, and monitoring techniques.",
+  "Cybersecurity is the field of technology that focuses on protecting computer systems, networks, mobile devices, and sensitive information from digital attacks. It involves preventing unauthorized access, detecting potential threats, and responding to cyber incidents. ",
   
   },
     {

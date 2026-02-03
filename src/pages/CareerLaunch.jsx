@@ -181,7 +181,7 @@ const CareerLaunch = () => {
 
   <div className="flex gap-3 mb-10 flex-wrap">
     {resourceTabs.map((tab) => (
-      <button
+      <div
         key={tab.key}
         onClick={() => setActiveResourceTab(tab.key)}
         className={`px-4 py-2 rounded-full text-sm font-medium border
@@ -192,7 +192,7 @@ const CareerLaunch = () => {
           }`}
       >
         {tab.label}
-      </button>
+      </div>
     ))}
   </div>
 
@@ -221,7 +221,7 @@ const CareerLaunch = () => {
 {/* 👇 SHOW MORE BUTTON */}
 {visibleCount < filteredResources.length && (
   <div className="mt-10">
-    <button
+    <span
       onClick={() => setVisibleCount(prev => prev + 8)}
       className="
         px-6 py-2.5
@@ -230,13 +230,13 @@ const CareerLaunch = () => {
         bg-white
         rounded-[50px]
         text-sm font-medium
-        hover:bg-blue-50
+        hover:bg-blue-150
         transition
         width-[30px]
       "
     >
       Show 8 more
-    </button>
+    </span>
   </div>
 )}
 
