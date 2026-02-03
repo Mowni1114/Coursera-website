@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100 mt-2 text-gray-900">
       {/* ================= TOP LINKS ================= */}
-      <div className="max-w-7xl mx-auto px-4 py-14">
+      <div className="max-w-7xl mx-auto px-4 py-10">
        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-10 text-sm md:text-xs">
 
 
@@ -93,7 +93,7 @@ const Footer = () => {
       </div>
 
       {/* ================= SECOND ROW ================= */}
-      <div className="max-w-7xl mx-auto px-4 py-14">
+      <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-10 text-sm">
 
           {/* Coursera */}
@@ -159,7 +159,7 @@ const Footer = () => {
 
       {/* ================= BOTTOM ================= */}
       <div className="border-t border-gray-300">
-        <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+        <div className="max-w-7xl mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
           <p>© 2026 Coursera Inc. All rights reserved.</p>
 
           <div className="flex gap-4 text-4xl color">

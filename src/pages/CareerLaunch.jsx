@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { careers, careerResources } from "../data/careerData";
 import WhyCoursera from "../components/WhyCoursera";
+import Footer from "../components/Footer";
+import p1 from "../assets/p1.png";
+import p2 from "../assets/p2.png";
+import p3 from "../assets/p3.png";
+import p4 from "../assets/p4.png";
 
 const CareerLaunch = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -72,12 +77,14 @@ const CareerLaunch = () => {
     <div
       key={i}
       className="
-        border rounded-2xl bg-white
-        p-3
-        transition-all duration-300
-        hover:shadow-xl
-        flex  items-center gap-1
-        sm:block
+      border rounded-2xl bg-white
+      p-3
+      transition-all duration-300 ease-out
+      hover:shadow-xl
+      hover:scale-[1.03]
+      hover:-translate-y-1
+      flex items-center gap-1
+      sm:block
       "
     >
       {/* ================= MOBILE VIEW ================= */}
@@ -173,7 +180,7 @@ const CareerLaunch = () => {
         <WhyCoursera />
       </div>
 
-      {/* ================= CAREER RESOURCES (UNCHANGED) ================= */}
+      {/* ================= CAREER RESOURCES ================= */}
       <div className="mt-20">
   <div className="text-3xl font-semibold mb-6">
     Career resources
@@ -201,7 +208,12 @@ const CareerLaunch = () => {
     {filteredResources.slice(0, visibleCount).map((item, i) => (
       <div
         key={i}
-        className="border rounded-2xl bg-white p-3 hover:shadow-xl"
+        className="  border rounded-2xl bg-white p-3
+        transition-all duration-300 ease-out
+        hover:shadow-xl
+        hover:scale-[1.03]
+        hover:-translate-y-1
+       "
       >
         <div className="text-base font-semibold mb-3">
           {item.title}
@@ -221,7 +233,7 @@ const CareerLaunch = () => {
 {/* 👇 SHOW MORE BUTTON */}
 {visibleCount < filteredResources.length && (
   <div className="mt-10">
-    <span
+    <label
       onClick={() => setVisibleCount(prev => prev + 8)}
       className="
         px-6 py-2.5
@@ -233,12 +245,108 @@ const CareerLaunch = () => {
         hover:bg-blue-150
         transition
         width-[30px]
+   
+      
       "
     >
       Show 8 more
-    </span>
+    </label>
   </div>
 )}
+
+{/* ================= SUCCESS STORIES ================= */}
+<div className="mt-10">
+  <p className="text-3xl font-semibold mb-10">Success stories</p>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    
+    {/* 1st Card */}
+    <div className="border rounded-2xl bg-white p-6 ">
+      <div className="flex items-center gap-4 mb-4">
+        <img src={p1} className="w-16 h-16 rounded-full object-cover" alt="" />
+        <div>
+          <div className="font-semibold text-lg">Rachel L.</div>
+          <p className="text-gray-600 text-sm">
+            Google UX Design Professional Certificate
+          </p>
+        </div>
+      </div>
+
+      <p className="text-gray-700 text-sm leading-relaxed">
+        "I loved the process of going through the UX research… it gave me an 
+        appreciation for the pre-work that goes into a product before you start
+        putting pixels together."
+      </p>
+    </div>
+
+    {/* 2nd Card */}
+    <div className="border rounded-2xl bg-white p-6 ">
+      <div className="flex items-center gap-4 mb-4">
+        <img src={p2} className="w-16 h-16 rounded-full object-cover" alt="" />
+        <div>
+          <div className="font-semibold text-lg">Luc</div>
+          <p className="text-gray-600 text-sm">
+            Google UX Design Professional Certificate
+          </p>
+        </div>
+      </div>
+
+      <p className="text-gray-700 text-sm leading-relaxed">
+        "The Google UX Design Certificate has been extremely beneficial to my career.
+        I landed a great job shortly after completion."
+      </p>
+    </div>
+
+    {/* 3rd Card */}
+    <div className="border rounded-2xl bg-white p-6 ">
+      <div className="flex items-center gap-4 mb-4">
+        <img src={p3} className="w-16 h-16 rounded-full object-cover" alt="" />
+        <div>
+          <div className="font-semibold text-lg">Daniel A.</div>
+          <p className="text-gray-600 text-sm">
+            Google IT Support Professional Certificate
+          </p>
+        </div>
+      </div>
+
+      <p className="text-gray-700 text-sm leading-relaxed">
+        "I love my new job. One of the most validating things in the world is 
+        recognizing that you’ve helped someone."
+      </p>
+    </div>
+
+    {/* 4th Card */}
+    <div className="border rounded-2xl bg-white p-6 ">
+      <div className="flex items-center gap-4 mb-4">
+        <img src={p4} className="w-16 h-16 rounded-full object-cover" alt="" />
+        <div>
+          <div className="font-semibold text-lg">Lauren</div>
+          <p className="text-gray-600 text-sm">
+            Google Project Management Professional Certificate
+          </p>
+        </div>
+      </div>
+
+      <p className="text-gray-700 text-sm leading-relaxed">
+        "This program did what I was hoping for… reentry into the workforce 
+        and a new career."
+      </p>
+    </div>
+
+  </div>
+</div>
+{/* ================= END SUCCESS STORIES ================= */}
+
+<div className="mt-6">
+  <p className="text-base px-2">
+    ¹ Median salary and job opening data are sourced from Lightcast™ Job Postings Report <br /> 
+    Content Creator, Machine Learning Engineer and Salesforce Development Representative<br /> (1/1/2024 - 31/12/2024)<br />
+    All other job roles (1/1/2025 - 1/1/2026)
+  </p>
+</div>
+<div className="mt-10">
+  <Footer />
+</div>
 
 </div>
 
