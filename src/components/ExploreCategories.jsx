@@ -77,9 +77,20 @@ const ExploreCategories = () => {
       setCanScrollRight(scrollEl.scrollLeft + scrollEl.clientWidth < scrollEl.scrollWidth);
     }, 200);
   };
+  <style>
+  {`
+    .no-scrollbar {
+      -ms-overflow-style: none; 
+      scrollbar-width: none;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  `}
+</style>
 
   return (
-    <div style={{ width: "100%", paddingTop: "32px" }}>
+    <div style={{ width: "100%", paddingTop: "22px" }}>
       <div
         style={{
           maxWidth: "1200px",
@@ -88,7 +99,7 @@ const ExploreCategories = () => {
           position: "relative", // needed for arrows
         }}
       >
-        <p style={{ fontSize: "23px", fontWeight: 600, marginBottom: "16px" }}>
+        <p style={{ fontSize: "27px", fontWeight: 600, marginBottom: "16px" }}>
           Explore categories
         </p>
 
@@ -111,7 +122,7 @@ const ExploreCategories = () => {
         {/* scrollable container */}
         <div
           ref={scrollRef}
-          className={!isDesktop ? "hide-x-scrollbar" : ""}
+          className={!isDesktop ? "no-scrollbar" : ""}
           style={{
             display: "flex",
             gap: "12px",

@@ -36,7 +36,7 @@ const CareerLaunch = () => {
   }, [activeResourceTab]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-7xl mx-auto px-2 py-10">
       {/* Heading */}
       <div className="text-3xl sm:text-4xl font-semibold mb-3">
         Explore roles

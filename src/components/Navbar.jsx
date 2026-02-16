@@ -23,7 +23,7 @@ const Navbar = () => {
 
       {/* MAIN NAVBAR */}
       <nav className="navbar navbar-expand-lg bg-white border-bottom sticky-top">
-        <div className="container-fluid px-4">
+        <div className="container-fluid px-1">
 
           {/* MOBILE HAMBURGER */}
           <button

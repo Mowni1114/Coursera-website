@@ -20,13 +20,13 @@ const Home = () => {
       <CareerSection />
       <TrendingCoursesSection />
       <ExploreCategories />
- <HotRelease />
+      <HotRelease />
       <Mentors />
       <WhyCoursera />
-   <IndustryCertificate />
-     <PopularCategory />
-     <PromoBanners />
-    <Footer />
+      <IndustryCertificate />
+      <PopularCategory />
+      <PromoBanners />
+      <Footer />
    
          </div>
     </>

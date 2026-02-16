@@ -135,7 +135,7 @@ const Footer = () => {
             
             </ul>
           </div>
-
+        
           {/* App + Badge */}
           <div className="space-y-6">
             <img
@@ -174,5 +174,5 @@ const Footer = () => {
     </footer>
   );
 };
-
+                                  
 export default Footer;
