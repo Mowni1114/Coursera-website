@@ -94,7 +94,7 @@ const ExploreCategories = () => {
       <div
         style={{
           maxWidth: "1200px",
-          padding: "0 10px",
+          padding: "0 6px",
           boxSizing: "border-box",
           position: "relative", // needed for arrows
         }}
