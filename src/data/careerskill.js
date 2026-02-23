@@ -329,9 +329,7 @@ export const trendingNowData = [
     title: "Building Cloud Computing Solutions",
     type: "Professional Certificate",
     tag: "Free Trial",
-    degree: true,
-    degreeLogo: certificate,
-   
+ 
   },
   {
     id: 4,
@@ -365,6 +363,9 @@ export const trendingNowData = [
     logo: DeepL,
     type: "Course",
     tag: "Preview",
+    degree: true,
+    degreeLogo: certificate,
+   
    
   },
   {
@@ -384,6 +385,8 @@ export const trendingNowData = [
     logo: Google,
     type: "Course",
     tag: "Free Trial",
+    degree: true,
+    degreeLogo: certificate,
   },
   {
     id:9,
@@ -393,6 +396,9 @@ export const trendingNowData = [
     logo: Google,
     type: "Course",
     tag: "Free Trial",
+    degree: true,
+    degreeLogo: certificate,
+   
   },
   {
     id: 10,
@@ -411,6 +417,8 @@ export const trendingNowData = [
     logo: IBM,
     type: "Course",
     tag: "Free Trial",
+    degree: true,
+    degreeLogo: certificate,
   },
   {
     id: 11,
@@ -421,7 +429,5 @@ export const trendingNowData = [
     type: "Course",
     tag: "Free Trial",
   },
-
-
-
+  
 ];

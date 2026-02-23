@@ -90,7 +90,7 @@ const ExploreCategories = () => {
 </style>
 
   return (
-    <div style={{ width: "100%", paddingTop: "22px" }}>
+    <div style={{ width: "100%" }}>
       <div
         style={{
           maxWidth: "1200px",
