@@ -22,7 +22,8 @@ export const trendingCourses = [
   {
     title: "Most popular",
     courses: [
-      {
+      { 
+        id:1,
         img: cp1,
         logo: Google,
         org: "Google",
@@ -30,6 +31,7 @@ export const trendingCourses = [
         meta: "Course · ⭐ 4.8",
       },
       {
+        id:2,
         img: cp2,
         logo: IBM,
         org: "IBM",
@@ -37,6 +39,7 @@ export const trendingCourses = [
         meta: "Course · ⭐ 4.6",
       },
       {
+        id:3,
         img: cp3,
         logo: Michigan,
         org: "University of Michigan",
@@ -49,6 +52,7 @@ export const trendingCourses = [
     title: "Weekly spotlight",
     courses: [
       {
+        id:4,
         img: cp4,
         logo: Microsoft,
         org: "Microsoft",
@@ -56,6 +60,7 @@ export const trendingCourses = [
         meta: "Professional Certificate · ⭐ 4.6",
       },
       {
+        id:5,
         img: cp5,
         logo: Meta,
         org: "Meta",
@@ -63,6 +68,7 @@ export const trendingCourses = [
         meta: "Professional Certificate · ⭐ 4.8",
       },
       {
+        id:6,
         img: cp6,
         logo: Intuit,
         org: "Intuit",
@@ -75,6 +81,7 @@ export const trendingCourses = [
     title: "In-demand AI skills",
     courses: [
       {
+        id:7,
         img: cp7,
         logo: IBMLogo,
         org: "IBM",
@@ -82,6 +89,7 @@ export const trendingCourses = [
         meta: "Professional Certificate · ⭐ 4.6",
       },
       {
+        id:8,
         img: cp8,
         logo: GoogleLogo,
         org: "Google",
@@ -89,6 +97,7 @@ export const trendingCourses = [
         meta: "Specialization · ⭐ 4.8",
       },
       {
+        id:9,
         img: cp9,
         logo: University,
         org: "University of Pennsylvania",

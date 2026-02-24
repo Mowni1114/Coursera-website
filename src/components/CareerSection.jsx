@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 import ArrowButton from "./ArrowButton";
-
+                                                     
 import Union from "../assets/Union.png";
 import Certificate from "../assets/Certificate.png";
 import Cap from "../assets/Cap.png";
@@ -30,7 +30,7 @@ const CareerSection = () => {
 
 
   const [showCareerArrows, setShowCareerArrows] = useState(false);
-
+ 
   // For dynamic logo arrows
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -142,9 +142,8 @@ useEffect(() => {
     style={{ top: "40%" }}
   />
 )}
-
-
-          <div className="col-10 col-md-4">
+                                                     
+  <div className="col-10 col-md-4">
   <div
     className="career-card p-3"
     onClick={() => navigate("/career/launch")}
@@ -154,8 +153,6 @@ useEffect(() => {
     <img src={Union} alt="" className="career-icon" />
   </div>
 </div>
-
-
           <div className="col-10 col-md-4">
             <div className="career-card p-3"
               onClick={() => navigate("/career/skills")} 
@@ -164,7 +161,7 @@ useEffect(() => {
               <img src={Certificate} alt="" className="career-icon" />
             </div>
           </div>
-
+        
           <div className="col-10 col-md-4">
             <div className="career-card p-3"
               onClick={() => navigate("/career/degree")}
@@ -174,7 +171,9 @@ useEffect(() => {
             </div>
           </div>
         </div>
+      
       </div>
+
 
       {/* ===== LOGO SECTION ===== */}
       <div className="my-1 position-relative">

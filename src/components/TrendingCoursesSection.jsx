@@ -2,8 +2,10 @@ import React, { useRef, useState, useEffect } from "react";
 import { trendingCourses } from "./trendingCourses";
 import ArrowButton from "./ArrowButton";
 
+import { useNavigate } from "react-router-dom";
 const TrendingCoursesSection = () => {
   const sliderRef = useRef(null);
+  const navigate = useNavigate();
 
   // states for arrow visibility
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -78,44 +80,37 @@ const TrendingCoursesSection = () => {
             <p className="font-semibold text-base lg:text-lg mb-3">
               {column.title} →
             </p>
-
             {column.courses.map((course, i) => (
-              <div
-                key={i}
-                className="
-                  bg-white rounded-xl p-2 flex items-start gap-3 mb-3
-                  transition-all duration-300 ease-in-out
-                  hover:-translate-y-2 hover:shadow-md
-                "
-              >
-                <img
-                  src={course.img}
-                  className="w-14 h-14 rounded-lg object-cover flex-shrink-0"
-                  alt=""
-                />
+<div
+key={i}
+onClick={() => navigate(`/course/${course.id}`)}
+className="bg-white rounded-xl p-2 flex items-start gap-3 mb-3
+transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-md cursor-pointer text-black"
+>
+<img
+  src={course.img}
+  className="w-14 h-14 rounded-lg object-cover flex-shrink-0"
+  alt=""
+/>
 
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-baseline gap-2 pointer-events-none mb-0.5">
-                    <img
-                      src={course.logo}
-                      alt=""
-                      className="w-3 h-3 object-contain inline-block translate-y-[1px]"
-                    />
-                    <span className="text-[11px] sm:text-xs text-gray-600 leading-tight">
-                      {course.org}
-                    </span>
-                  </div>
+<div className="flex-1 min-w-0">
+  <div className="flex items-baseline gap-2 pointer-events-none mb-0.5">
+    <img src={course.logo} alt="" className="w-3 h-3" />
+    <span className="text-[11px] sm:text-xs text-gray-600">
+      {course.org}
+    </span>
+  </div>
 
-                  <p className="font-semibold text-[13px] sm:text-sm lg:text-base leading-snug">
-                    {course.title}
-                  </p>
+  <p className="font-semibold text-[13px] sm:text-sm lg:text-base leading-snug">
+    {course.title}
+  </p>
 
-                  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-500 mt-0.5">
-                    {course.meta}
-                  </p>
-                </div>
-              </div>
-            ))}
+  <p className="text-[11px] sm:text-xs lg:text-sm text-gray-500 mt-0.5">
+    {course.meta}
+  </p>
+</div>
+</div>
+))}
           </div>
         ))}
       </div>

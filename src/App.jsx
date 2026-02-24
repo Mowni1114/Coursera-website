@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import CareerLaunch from "./pages/CareerLaunch";
 import CareerSkills from "./pages/CarreerSkiils";
 import CareerDegree from "./pages/CareerDegree";
+import CourseDetails from "./pages/CourseDetails";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         <Route path="/career/launch" element={<CareerLaunch />} />
         <Route path="/career/skills" element={<CareerSkills />} />
         <Route path="/career/degree" element={<CareerDegree />} />
+        <Route path="/course/:id" element={<CourseDetails />} />
+      
+         
       </Routes>
     </BrowserRouter>
   );
