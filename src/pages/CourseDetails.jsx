@@ -18,8 +18,6 @@ const CourseDetail1 = () => {
       <Home size={18} />
     </Link>
 
-
-
     <div>{">"}</div>
 
     {/* Browse */}
@@ -89,7 +87,7 @@ const CourseDetail1 = () => {
             </button>
 
             <p className="text-sm text-gray-600 mt-2">
-              Starts Mar 9
+              1,372,96 already enrolled
             </p>
 
           </div>
@@ -107,6 +105,76 @@ const CourseDetail1 = () => {
             fill="#dbeafe"
           />
         </svg>
+
+        {/* COURSE INFO CARD */}
+
+<div className="max-w-7xl mx-auto px-8 -mt-16 relative z-20">
+<div className="bg-gray-100 rounded-2xl shadow-lg grid grid-cols-5 divide-x divide-gray-200">
+
+  {/* Course Series */}
+  <div className="p-6">
+    <p className="text-2xl font-semibold underline cursor-pointer">
+      8 course series
+    </p>
+    <p className="text-gray-600 text-base mt-1">
+      Earn a career credential that
+      demonstrates your expertise
+    </p>
+  </div>
+
+  {/* Rating */}
+  <div className="p-6">
+    <p className="text-2xl font-semibold flex items-center gap-1">
+      4.8
+      <span className="text-blue-600">★</span>
+    </p>
+    <p className="text-gray-600 text-base mt-1">
+      from 97,761 reviews of courses in
+      this program
+    </p>
+  </div>
+
+  {/* Beginner */}
+  <div className="p-4">
+    <p className="text-2xl font-semibold">
+      Beginner level
+    </p>
+    <p className="text-gray-600 text-base mt-1 flex items-center gap-1">
+      Recommended experience
+      <span className="border border-gray-500 rounded-full w-4 h-4 text-xs flex items-center justify-center">
+        i
+      </span>
+    </p>
+  </div>
+
+  {/* Flexible Schedule */}
+  <div className="p-4">
+    <p className="text-2xl font-semibold">
+      Flexible schedule
+    </p>
+    <p className="text-gray-600 text-base mt-1">
+      6 months at 10 hours a week
+    </p>
+    <p className="text-gray-600 text-normal">
+      Learn at your own pace
+    </p>
+  </div>
+
+  {/* Degree */}
+  <div className="p-6">
+    <p className="text-2xl font-semibold">
+      Build  a degree
+    </p>
+    <p className="text-sm underline cursor-pointer">
+      Learn more
+    </p>
+  </div>
+
+</div>
+</div>
+
+
+
 
       </section>
 
