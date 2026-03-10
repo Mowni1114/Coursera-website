@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
@@ -9,94 +10,89 @@ const CourseDetail1 = () => {
   return (
     <div>
 
-      {/* BREADCRUMB SECTION */}
+      {/* BREADCRUMB */}
       <div className="bg-gray-100">
-  <div className="flex items-center gap-2 px-5 py-3 text-black">
+        <div className="flex items-center gap-2 px-5 py-3 text-black text-sm">
+          <Link to="/" className="cursor-pointer">
+            <Home size={18} />
+          </Link>
 
-    {/* Home icon */}
-    <Link to="/" className="cursor-pointer">
-      <Home size={18} />
-    </Link>
+          <div>{">"}</div>
 
-    <div>{">"}</div>
+          <Link to="/ExploreCategories" className="cursor-pointer text-gray-600">
+            Browse
+          </Link>
+        </div>
+      </div>
 
-    {/* Browse */}
-    <Link to="/ExploreCategories" className="cursor-pointer text-gray-100">
-      Browse
-    </Link>
-
-  </div>
-</div>
 
       {/* HERO SECTION */}
       <section className="relative bg-[#eef2f7] overflow-hidden">
 
-        <div className="max-w-7xl mx-auto px-8 py-16 flex items-center">
+        <div className="max-w-7xl px-5 lg:px-4 py-10 lg:py-16 flex items-center">
 
           {/* LEFT CONTENT */}
-          <div className="max-w-xl z-10">
+          <div className="max-w-xl lg:max-w-2xl z-10">
 
-            {/* First image - detail1 */}
+            {/* Image */}
             <img
               src={detail}
               alt="detail"
-              className="w-32 mb-6"
+              className="w-24 lg:w-32 mb-6"
             />
 
             {/* Title */}
-            <p className="text-5xl font-semibold leading-tight mb-6">
+            <p className="text-2xl md:text-3xl lg:text-5xl font-semibold leading-tight mb-6">
               Google UX Design Professional Certificate
             </p>
 
             {/* Description */}
-            <p className="text-xl text-gray-700 mb-2">
+            <p className="text-base md:text-lg lg:text-xl text-gray-700 mb-2">
               Get on the fast track to a career in UX design.
             </p>
 
-            <p className="text-xl text-gray-700 mb-4">
+            <p className="text-base md:text-lg lg:text-xl text-gray-700 mb-4">
               In this certificate program, you’ll learn in-demand skills,
-              and get AI training from Google experts.
-              Learn at your own pace, no degree or experience required.
+              and get AI training from Google experts. Learn at your own
+              pace, no degree or experience required.
             </p>
 
             {/* Instructor */}
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex flex-wrap items-center gap-3 mb-6">
 
               <img
                 src={Google}
                 alt="Google"
-                className="w-8 h-8"
+                className="w-7 h-7"
               />
-
-              <p className="text-gray-700">
-                Instructor:
-                <span className="text-blue-700 ml-1 font-medium">
+                <p className="text-blue-700 ml-1 font-medium">
                   Google Career Certificates
-                </span>
-              </p>
+                </p>
+             
 
-              <span className="bg-blue-100 text-blue-700 text-sm px-2 py-1 rounded">
+              <span className="bg-blue-100 text-blue-700 text-xs md:text-sm px-2 py-1 rounded">
                 ✦ New AI skills
               </span>
 
             </div>
 
             {/* Button */}
-            <button className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-lg font-semibold">
+            <button className="bg-blue-700 hover:bg-blue-800 text-white px-6 lg:px-8 py-3 rounded-lg font-semibold">
               Enroll for free
             </button>
 
             <p className="text-sm text-gray-600 mt-2">
-              1,372,96 already enrolled
+              1,372,196 already enrolled
             </p>
 
           </div>
 
         </div>
 
-        {/* BACKGROUND SVG */}
+
+        {/* BACKGROUND SVG (desktop only) */}
         <svg
-          className="absolute right-0 top-0 h-full opacity-40"
+          className="hidden lg:block absolute right-0 top-0 h-full opacity-40"
           viewBox="0 0 600 600"
           fill="none"
         >
@@ -105,76 +101,73 @@ const CourseDetail1 = () => {
             fill="#dbeafe"
           />
         </svg>
-
         {/* COURSE INFO CARD */}
+<div className="max-w-10xl px-5 lg:px-5 lg:-mt-16 relative lg:z-20">
 
-<div className="max-w-7xl mx-auto px-8 -mt-16 relative z-20">
-<div className="bg-gray-100 rounded-2xl shadow-lg grid grid-cols-5 divide-x divide-gray-200">
+<div className="lg:bg-gray-100 lg:rounded-2xl lg:shadow-lg 
+lg:grid lg:grid-cols-5 
+lg:divide-x lg:divide-gray-200">
 
-  {/* Course Series */}
-  <div className="p-6">
-    <p className="text-2xl font-semibold underline cursor-pointer">
-      8 course series
-    </p>
-    <p className="text-gray-600 text-base mt-1">
-      Earn a career credential that
-      demonstrates your expertise
-    </p>
-  </div>
-
-  {/* Rating */}
-  <div className="p-6">
-    <p className="text-2xl font-semibold flex items-center gap-1">
-      4.8
-      <span className="text-blue-600">★</span>
-    </p>
-    <p className="text-gray-600 text-base mt-1">
-      from 97,761 reviews of courses in
-      this program
-    </p>
-  </div>
-
-  {/* Beginner */}
-  <div className="p-4">
-    <p className="text-2xl font-semibold">
-      Beginner level
-    </p>
-    <p className="text-gray-600 text-base mt-1 flex items-center gap-1">
-      Recommended experience
-      <span className="border border-gray-500 rounded-full w-4 h-4 text-xs flex items-center justify-center">
-        i
-      </span>
-    </p>
-  </div>
-
-  {/* Flexible Schedule */}
-  <div className="p-4">
-    <p className="text-2xl font-semibold">
-      Flexible schedule
-    </p>
-    <p className="text-gray-600 text-base mt-1">
-      6 months at 10 hours a week
-    </p>
-    <p className="text-gray-600 text-normal">
-      Learn at your own pace
-    </p>
-  </div>
-
-  {/* Degree */}
-  <div className="p-6">
-    <p className="text-2xl font-semibold">
-      Build  a degree
-    </p>
-    <p className="text-sm underline cursor-pointer">
-      Learn more
-    </p>
-  </div>
-
-</div>
+    {/* Course Series */}
+    <div className="p-0 lg:p-3 m-0 lg:m-2">
+  <p className="text-xl lg:text-2xl font-semibold underline cursor-pointer">
+    8 course series
+  </p>
+  <p className="text-gray-600 text-base lg:text-base">
+    Earn a career credential that demonstrates your expertise
+  </p>
 </div>
 
+{/* Rating */}
+<div className="p-0 lg:p-3 m-0 lg:m-2">
+  <p className="text-xl lg:text-2xl font-semibold flex items-center gap-1">
+    4.8 <span className="text-blue-600">★</span>
+  </p>
+  <p className="text-gray-600 text-base lg:text-base">
+    from 97,761 reviews of courses in this program
+  </p>
+</div>
 
+    {/* Beginner */}
+    <div className="p-0 lg:p-3 m-0 lg:m-2">
+      <p className="text-xl lg:text-2xl font-semibold">
+        Beginner level
+      </p>
+      <p className="text-gray-600 text-base lg:text-base mt-1 flex items-center ">
+        Recommended experience
+        <span className="border border-gray-500 rounded-full w-4 h-4 text-xs flex items-center justify-center">
+          i
+        </span>
+      </p>
+    </div>
 
+    {/* Flexible Schedule */}
+    <div className="p-0 lg:p-3 m-0 lg:m-2">
+      <p className="text-xl lg:text-2xl font-semibold">
+        Flexible schedule
+      </p>
+      <p className="text-gray-600 text-base lg:text-base mt-1">
+        6 months at 10 hours a week
+      </p>
+      <p className="text-gray-600 text-base">
+        Learn at your own pace
+      </p>
+    </div>
+
+    {/* Degree */}
+    <div className="p-0 m-0 lg:p-3 lg:m-2">
+      <p className="text-xl lg:text-2xl font-semibold">
+        Build toward a degree
+      </p>
+      <p className="text-base underline cursor-pointer">
+        Learn more
+      </p>
+    </div>
+
+  </div>
+</div>
+
+      
 
       </section>
 
@@ -183,3 +176,4 @@ const CourseDetail1 = () => {
 };
 
 export default CourseDetail1;
+

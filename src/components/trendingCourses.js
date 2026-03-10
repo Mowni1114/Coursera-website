@@ -27,7 +27,7 @@ export const trendingCourses = [
         img: cp1,
         logo: Google,
         org: "Google",
-        title: "Crash Course on Python",
+        title: "Google UX Design ",
         meta: "Course · ⭐ 4.8",
       },
       {
