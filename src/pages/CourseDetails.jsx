@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 import Google from "../assets/Google.png";
 import detail from "../assets/detail1.png";
 import Back_End from "../assets/Back_End.png";
+import Certificate from "../assets/Certificate.png";
 
 
 const CourseDetail1 = () => {
@@ -24,16 +26,20 @@ const CourseDetail1 = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const [showMore, setShowMore] = useState(false);
+
+
+
   return (
     <div>
       {/* STICKY TOP BAR */}
       <div
-        className={`fixed top-0 left-0 w-full z-50 bg-white border-b shadow-md transition-transform transition-opacity duration-500 ease-in-out ${
+        className={` hidden lg:block fixed top-0 left-0 w-full z-50 bg-white border-b shadow-md transition-transform transition-opacity duration-500 ease-in-out ${
           showStickyBar
             ? "translate-y-0 opacity-100"
             : "-translate-y-full opacity-0 pointer-events-none"
         }`}
-      >
+       >
         <div className="max-w-7xl  px-5 lg:px-6">
           {/* Top row */}
           <div className="flex items-center justify-between py-2 border-b border-gray-200 gap-4">
@@ -258,8 +264,8 @@ const CourseDetail1 = () => {
 </div>
 
 {/* SKILLS YOU'LL GAIN */}
-<div className="mt-4 lg:mt-5">
-  <div className="text-2xl font-semibold mb-5">Skills you'll gain</div>
+<div className="mt-3 lg:mt-4">
+  <div className="text-2xl font-semibold mb-3">Skills you'll gain</div>
 
   <div className="flex flex-wrap gap-3">
     <span className="bg-[#eef2f7] px-4 py-2 rounded-full text-sm sm:text-base text-black">
@@ -353,65 +359,256 @@ const CourseDetail1 = () => {
 </div>
 
 {/* BUILD YOUR MARKETING EXPERTISE */}
-{/* BUILD YOUR MARKETING EXPERTISE */}
-<section className="w-full  py-6 ">
-  <div className="max-w-7xl  px-5 lg:px-10">
-    <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-16">
+
+<section className="w-full py-6">
+<div className="max-w-7xl ">
+  <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 items-center gap-8 lg:gap-16">
+    
+    {/* CONTENT */}
+    <div className="flex justify-start">
+      <div className="max-w-[700px]">
+        <h2 className="text-3xl lg:text-[54px] font-bold text-black leading-tight mb-6">
+          Build your Marketing expertise
+        </h2>
+
+        <p className="text-lg lg:text-[20px] text-black leading-9 mb-2">
+          This course is part of the{" "}
+          <span className="text-blue-700 font-semibold cursor-pointer hover:underline">
+            Google Digital Marketing &amp; E-commerce Professional Certificate
+          </span>
+        </p>
+
+        <p className="text-lg lg:text-[20px] text-black leading-9 mb-8">
+          When you enroll in this course, you'll also be enrolled in this
+          Professional Certificate.
+        </p>
+
+        <ul className="space-y-5 text-lg lg:text-[20px] text-black">
+          <li className="flex items-start gap-4">
+            <span className="text-2xl leading-none mt-1">•</span>
+            <span>Learn new concepts from industry experts</span>
+          </li>
+
+          <li className="flex items-start gap-4">
+            <span className="text-2xl leading-none mt-1">•</span>
+            <span>Gain a foundational understanding of a subject or tool</span>
+          </li>
+
+          <li className="flex items-start gap-4">
+            <span className="text-2xl leading-none mt-1">•</span>
+            <span>Develop job-relevant skills with hands-on projects</span>
+          </li>
+
+          <li className="flex items-start gap-4">
+            <span className="text-2xl leading-none mt-1">•</span>
+            <span>Earn a shareable career certificate from Google</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {/* IMAGE */}
+    <div className="w-full">
+      <img
+        src={Back_End}
+        alt="Marketing course"
+        className="w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[360px] object-cover rounded-2xl"
+      />
+    </div>
+  </div>
+</div>
+</section>
+
+
+<div className="w-full lg:w-[60%]">
+
+<h2 className="text-3xl lg:text-5xl font-semibold mb-6">
+  There are 4 modules in this course
+</h2>
+
+  <p className="text-lg leading-8 mb-4">
+    This is the first of eight courses in the Google Digital Marketing &
+    E-commerce Certificate, which will equip you with the skills you need
+    to apply to entry-level roles in these fields. People who work in
+    digital marketing and e-commerce help their organizations attract new
+    customers, engage customers through various digital channels, and drive
+    transactions like purchases and customer loyalty.
+  </p>
+
+  {showMore && (
+    <>
+      <p className="text-lg leading-8 mb-4">
+        Google employees who currently work in the field will guide you,
+        providing hands-on activities and examples that simulate common
+        digital marketing and e-commerce tasks, and helping you build your
+        skills and prepare for the job.
+      </p>
+
+      <ul className="space-y-2 text-lg leading-8 mb-4">
+        <li>- Define the fields of digital marketing and e-commerce</li>
+        <li>- Describe job responsibilities of entry-level roles</li>
+        <li>- Summarize how this program prepares your career</li>
+        <li>- Identify roles and functions in an organization</li>
+        <li>- Understand the customer journey</li>
+        <li>- Explain the marketing funnel</li>
+        <li>- Understand digital marketing strategy</li>
+      </ul>
+    </>
+  )}
+
+</div>
+
+{!showMore ? (
+  <button
+    onClick={() => setShowMore(true)}
+    className="text-blue-600 font-semibold mt-2 hover:underline"
+  >
+    Read more
+  </button>
+) : (
+  <button
+    onClick={() => setShowMore(false)}
+    className="text-blue-600 font-semibold mt-2 hover:underline"
+  >
+    Read less
+  </button>
+)}
+
+
+
+
+<section className="w-full py-10">
+  <div className="max-w-7xl ">
+    <div className="grid grid-cols-1 lg:grid-cols-[1.55fr_1fr] gap-8 items-start">
       
-      {/* CONTENT */}
-      <div className="order-2 lg:order-1">
-        <div className="max-w-[700px]">
-          <h2 className="text-3xl lg:text-[54px] font-bold text-black leading-tight mb-6">
-            Build your Marketing expertise
-          </h2>
+      {/* LEFT SIDE */}
+      <div className="border border-gray-200 rounded-2xl p-6 lg:p-8 bg-white">
+        
+        {/* Module 1 */}
+        <div className="flex items-center justify-between py-3 border-b border-gray-200 hover:bg-[#eef4ff]  cursor-pointer transition">
+          <div>
+            <div className="text-2xl font-semibold text-black">
+              Introduction to foundations of digital marketing
+            </div>
+            <p className="text-gray-500 text-lg mt-2">
+              Module 1 &nbsp;•&nbsp; 3 hours to complete
+            </p>
+          </div>
+          <ChevronDown size={20}  color="blue"/>
+        </div>
 
-          <p className="text-lg lg:text-[20px] text-black leading-9 mb-2">
-            This course is part of the{" "}
-            <span className="text-blue-700 font-semibold cursor-pointer hover:underline">
-              Google Digital Marketing &amp; E-commerce Professional Certificate
-            </span>
-          </p>
+        {/* Module 2 */}
+        <div className="flex items-center justify-between py-3 border-b border-gray-200 hover:bg-[#eef4ff]  cursor-pointer transition">
+          <div>
+            <div className="text-2xl font-semibold text-black">
+              The customer journey and the marketing funnel
+            </div>
+            <p className="text-gray-500 text-lg mt-2">
+              Module 2 &nbsp;•&nbsp; 3 hours to complete
+            </p>
+          </div>
+          <ChevronDown size={20} color="blue"/>
+        </div>
 
-          <p className="text-lg lg:text-[20px] text-black leading-9 mb-8">
-            When you enroll in this course, you'll also be enrolled in this
-            Professional Certificate.
-          </p>
+        {/* Module 3 */}
+        <div className="flex items-center justify-between py-3 border-b border-gray-200 hover:bg-[#eef4ff]  cursor-pointer transition">
+          <div>
+            <div className="text-2xl font-semibold text-black">
+              Digital marketing and e-commerce strategy
+            </div>
+            <p className="text-gray-500 text-lg mt-2">
+              Module 3 &nbsp;•&nbsp; 3 hours to complete
+            </p>
+          </div>
+          <ChevronDown size={20} color="blue" />
+        </div>
 
-          <ul className="space-y-5 text-lg lg:text-[20px] text-black">
-            <li className="flex items-start gap-4">
-              <span className="text-2xl leading-none mt-1">•</span>
-              <span>Learn new concepts from industry experts</span>
-            </li>
+        {/* Module 4 highlighted */}
+        <div className="flex items-center justify-between py-3  border-gray-200 hover:bg-[#eef4ff]  cursor-pointer transition">
+          <div>
+            <div className="text-2xl font-semibold text-black">
+              Measure performance success
+            </div>
+            <p className="text-gray-500 text-lg mt-2">
+              Module 4 &nbsp;•&nbsp; 2 hours to complete
+            </p>
+          </div>
 
-            <li className="flex items-start gap-4">
-              <span className="text-2xl leading-none mt-1">•</span>
-              <span>Gain a foundational understanding of a subject or tool</span>
-            </li>
+          <ChevronDown size={20} color="blue" />
 
-            <li className="flex items-start gap-4">
-              <span className="text-2xl leading-none mt-1">•</span>
-              <span>Develop job-relevant skills with hands-on projects</span>
-            </li>
+          
+        </div>
 
-            <li className="flex items-start gap-4">
-              <span className="text-2xl leading-none mt-1">•</span>
-              <span>Earn a shareable career certificate from Google</span>
-            </li>
-          </ul>
+        {/* Divider */}
+        <div className="border-b border-gray-200 my-3"></div>
+
+        {/* Earn certificate section */}
+        <div className="flex items-start gap-6 pt-2">
+          <div className="w-12 h-12 rounded-2xl bg-[#eef2f7] flex items-center justify-center shrink-0">
+            <div className="text-4xl text-blue-700">
+              <img src={Certificate} alt = "certificate" ></img>
+            </div>
+          </div>
+
+          <div>
+            <div className="text-3xl font-semibold text-black mb-3">
+              Earn a career certificate
+            </div>
+            <p className="text-xl text-black leading-9">
+              Add this credential to your LinkedIn profile, resume, or CV.
+              Share it on social media and in your performance review.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* IMAGE */}
-      <div className="order-1 lg:order-2 w-full">
-        <img
-          src={Back_End}
-          alt="Marketing course"
-          className="w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[360px] object-cover rounded-2xl"
-        />
+      {/* RIGHT SIDE */}
+      <div className="border border-gray-200 rounded-2xl p-6 lg:p-8 bg-white">
+        <div className="text-3xl font-semibold text-black mb-3">Instructor</div>
+
+        <div className="flex items-center gap-3 text-lg mb-6">
+          <span className="text-gray-700">Instructor ratings</span>
+          <span className="text-blue-700">ℹ</span>
+          <span className="font-semibold">4.8 ★</span>
+          <span className="text-gray-500">(10,390 ratings)</span>
+        </div>
+
+        <div className="flex items-start gap-4 pb-6 border-b border-gray-200">
+          <img src={Google} alt="Google" className="w-16 h-16 rounded-full" />
+
+          <div>
+            <div className="text-2xl font-semibold underline cursor-pointer">
+              Google Career Certificates
+            </div>
+            <p className="text-xl mt-1">Google</p>
+            <p className="text-lg text-gray-700 mt-2">
+              386 Courses &nbsp;•&nbsp; 15,807,696 learners
+            </p>
+          </div>
+        </div>
+
+        <div className="pt-6">
+          <div className="text-3xl font-semibold text-black mb-5">Offered by</div>
+
+          <div className="flex items-start gap-4">
+            <img src={Google} alt="Google" className="w-16 h-16 rounded-2xl border" />
+
+            <div>
+              <div className="text-2xl font-semibold underline cursor-pointer">
+                Google
+              </div>
+              <p className="text-blue-700 text-xl mt-3 cursor-pointer hover:underline">
+                Learn more
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+
 </section>
     </div>
   );
