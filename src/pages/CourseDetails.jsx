@@ -4,6 +4,8 @@ import { Home } from "lucide-react";
 
 import Google from "../assets/Google.png";
 import detail from "../assets/detail1.png";
+import Back_End from "../assets/Back_End.png";
+
 
 const CourseDetail1 = () => {
   const [showStickyBar, setShowStickyBar] = useState(false);
@@ -205,151 +207,212 @@ const CourseDetail1 = () => {
       </section>
 
       {/* COURSE CONTENT SECTION */}
-      <section className="max-w-7xl px-5 lg:px-6 py-10">
-        {/* TABS */}
-        <div className="flex flex-wrap gap-8 border-b border-gray-200 pb-3 text-gray-700 text-xl font-semibold">
-          <button className="text-blue-600 border-b-2 border-blue-600 pb-2">
-            About
-          </button>
-          <button>Outcomes</button>
-          <button>Modules</button>
-          <button>Recommendations</button>
-          <button>Testimonials</button>
-          <button>Reviews</button>
+<section className="max-w-7xl px-5 lg:px-6 py-10">
+{/* TABS - desktop only */}
+<div className="hidden lg:flex flex-wrap gap-8 border-b border-gray-200 pb-3 text-gray-700 text-xl font-semibold">
+  <button className="text-blue-600 border-b-2 border-blue-600 pb-2">
+    About
+  </button>
+  <button>Outcomes</button>
+  <button>Modules</button>
+  <button>Recommendations</button>
+  <button>Testimonials</button>
+  <button>Reviews</button>
+</div>
+
+{/* WHAT YOU'LL LEARN */}
+<div className="mt-2 lg:mt-6">
+  <div className="text-2xl font-semibold mb-6">What you'll learn</div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 text-gray-700">
+    <div className="flex items-start gap-3">
+      <span className="text-black text-base lg:text-lg ">✔</span>
+      <p className="text-black text-base sm:text-lg lg:text-xl leading-7">
+        Define the fields of digital marketing and e-commerce
+      </p>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <span className="text-black text-base lg:text-lg ">✔</span>
+      <p className="text-black text-base sm:text-lg lg:text-xl leading-7">
+        Describe the job responsibilities of an entry-level digital marketer
+        and e-commerce specialist
+      </p>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <span className="text-black text-base lg:text-lg ">✔</span>
+      <p className="text-black text-base sm:text-lg lg:text-xl leading-7">
+        Explain the concept of a marketing funnel
+      </p>
+    </div>
+
+    <div className="flex items-start gap-3">
+      <span className="text-black text-base lg:text-lg ">✔</span>
+      <p className="text-black text-base sm:text-lg lg:text-xl leading-7">
+        Understand the elements and goals of a digital marketing and
+        e-commerce strategy
+      </p>
+    </div>
+  </div>
+</div>
+
+{/* SKILLS YOU'LL GAIN */}
+<div className="mt-4 lg:mt-5">
+  <div className="text-2xl font-semibold mb-5">Skills you'll gain</div>
+
+  <div className="flex flex-wrap gap-3">
+    <span className="bg-[#eef2f7] px-4 py-2 rounded-full text-sm sm:text-base text-black">
+      Branding
+    </span>
+
+    <span className="bg-[#eef2f7] px-4 py-2 rounded-full text-sm sm:text-base text-black">
+      Performance Measurement
+    </span>
+
+    <span className="bg-[#eef2f7] px-4 py-2 rounded-full text-sm sm:text-base text-black">
+      Email Marketing
+    </span>
+
+    <span className="bg-[#eef2f7] px-4 py-2 rounded-full text-sm sm:text-base text-black">
+      Digital Marketing
+    </span>
+
+    <span className="bg-[#eef2f7] px-4 py-2 rounded-full text-sm sm:text-base text-black">
+      Content Performance Analysis
+    </span>
+
+    <span className="hidden sm:inline-block bg-[#eef2f7] px-4 py-2 rounded-full text-sm sm:text-base text-black">
+      Marketing Strategy and Techniques
+    </span>
+
+    <span className="hidden sm:inline-block bg-[#eef2f7] px-4 py-2 rounded-full text-sm sm:text-base text-black">
+      Data Storytelling
+    </span>
+
+    <span className="hidden sm:inline-block bg-[#eef2f7] px-4 py-2 rounded-full text-sm sm:text-base text-black">
+      E-Commerce
+    </span>
+
+    <span className="hidden sm:inline-block bg-[#eef2f7] px-4 py-2 rounded-full text-sm sm:text-base text-black">
+      Marketing Analytics
+    </span>
+
+    <span className="text-black underline font-medium text-sm sm:text-base self-center cursor-pointer">
+      Show all
+    </span>
+  </div>
+</div>
+
+{/* DETAILS TO KNOW */}
+<div className="max-w-7xl py-5">
+  <div className="text-2xl font-semibold mb-3">Details to know</div>
+
+  <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+    {/* Shareable certificate */}
+    <div className="flex gap-3">
+      <div className="bg-blue-600 text-white font-bold w-10 h-10 flex items-center justify-center rounded shrink-0">
+        in
+      </div>
+
+      <div>
+        <div className="text-lg font-semibold">Shareable certificate</div>
+        <div className="text-gray-600 text-sm sm:text-base">
+          Add to your LinkedIn profile
         </div>
+      </div>
+    </div>
 
-        {/* WHAT YOU'LL LEARN */}
-        <div className="mt-6">
-          <div className="text-2xl font-semibold mb-6">What you'll learn</div>
+    {/* Assessments */}
+    <div className="flex gap-3">
+      <div className="text-2xl shrink-0">📋</div>
 
-          <div className="grid md:grid-cols-2 gap-6 text-gray-700">
-            <div className="flex gap-3">
-              <span className="text-black-800 text-lg">✔</span>
-              <p className="text-black text-xl">
-                Define the fields of digital marketing and e-commerce
-              </p>
-            </div>
-
-            <div className="flex gap-3">
-              <span className="text-black-600 text-lg">✔</span>
-              <p className="text-black text-xl">
-                Describe the job responsibilities of an entry-level digital
-                marketer and e-commerce specialist
-              </p>
-            </div>
-
-            <div className="flex gap-3">
-              <span className="text-black-600 text-lg">✔</span>
-              <p className="text-black text-xl">
-                Explain the concept of a marketing funnel
-              </p>
-            </div>
-
-            <div className="flex gap-3">
-              <span className="text-black-600 text-lg">✔</span>
-              <p className="text-black text-xl">
-                Understand the elements and goals of a digital marketing and
-                e-commerce strategy
-              </p>
-            </div>
-          </div>
+      <div>
+        <div className="text-lg font-semibold">Assessments</div>
+        <div className="text-gray-600 text-sm sm:text-base">
+          17 assignments
         </div>
-
-        {/* SKILLS YOU'LL GAIN */}
-        <div className="mt-2">
-          <div className="text-2xl font-semibold mb-6">Skills you'll gain</div>
-
-          <div className="flex flex-wrap gap-3">
-            <span className="bg-gray-200 px-4 py-2 rounded-full text-sm text-black">
-              Branding
-            </span>
-
-            <span className="bg-gray-200 px-4 py-2 rounded-full text-sm text-black">
-              Performance Measurement
-            </span>
-
-            <span className="bg-gray-200 px-4 py-2 rounded-full text-sm text-black">
-              Email Marketing
-            </span>
-
-            <span className="bg-gray-200 px-4 py-2 rounded-full text-sm text-black">
-              Digital Marketing
-            </span>
-
-            <span className="bg-gray-200 px-4 py-2 rounded-full text-sm text-black">
-              Content Performance Analysis
-            </span>
-
-            <span className="bg-gray-200 px-4 py-2 rounded-full text-sm text-black">
-              Marketing Strategy and Techniques
-            </span>
-
-            <span className="bg-gray-200 px-4 py-2 rounded-full text-sm text-black">
-              Data Storytelling
-            </span>
-
-            <span className="bg-gray-200 px-4 py-2 rounded-full text-sm text-black">
-              E-Commerce
-            </span>
-
-            <span className="bg-gray-200 px-4 py-2 rounded-full text-sm text-black">
-              Marketing Analytics
-            </span>
-          </div>
+        <div className="text-blue-600 cursor-pointer text-sm sm:text-base">
+          AI Graded see disclaimer
         </div>
+      </div>
+    </div>
 
-        {/* DETAILS TO KNOW */}
-        <div className="max-w-7xl py-12">
-          <div className="text-2xl font-semibold mb-5">Details to know</div>
+    {/* Language */}
+    <div className="flex gap-3">
+      <div className="text-2xl shrink-0">💬</div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Shareable certificate */}
-            <div className="flex gap-3">
-              <div className="bg-blue-600 text-white font-bold w-10 h-10 flex items-center justify-center rounded">
-                in
-              </div>
-
-              <div>
-                <div className="text-lg font-semibold">
-                  Shareable certificate
-                </div>
-
-                <div className="text-gray-600">
-                  Add to your LinkedIn profile
-                </div>
-              </div>
-            </div>
-
-            {/* Assessments */}
-            <div className="flex gap-3">
-              <div className="text-2xl">📋</div>
-
-              <div>
-                <div className="text-lg font-semibold">Assessments</div>
-
-                <div className="text-gray-600">17 assignments</div>
-
-                <div className="text-blue-600 cursor-pointer">
-                  AI Graded see disclaimer
-                </div>
-              </div>
-            </div>
-
-            {/* Language */}
-            <div className="flex gap-3">
-              <div className="text-2xl">💬</div>
-
-              <div>
-                <div className="text-lg font-semibold">Taught in English</div>
-
-                <div className="text-blue-600 cursor-pointer">
-                  11 languages available
-                </div>
-              </div>
-            </div>
-          </div>
+      <div>
+        <div className="text-lg font-semibold">Taught in English</div>
+        <div className="text-blue-600 cursor-pointer text-sm sm:text-base">
+          11 languages available
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* BUILD YOUR MARKETING EXPERTISE */}
+{/* BUILD YOUR MARKETING EXPERTISE */}
+<section className="w-full  py-6 ">
+  <div className="max-w-7xl  px-5 lg:px-10">
+    <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-16">
+      
+      {/* CONTENT */}
+      <div className="order-2 lg:order-1">
+        <div className="max-w-[700px]">
+          <h2 className="text-3xl lg:text-[54px] font-bold text-black leading-tight mb-6">
+            Build your Marketing expertise
+          </h2>
+
+          <p className="text-lg lg:text-[20px] text-black leading-9 mb-2">
+            This course is part of the{" "}
+            <span className="text-blue-700 font-semibold cursor-pointer hover:underline">
+              Google Digital Marketing &amp; E-commerce Professional Certificate
+            </span>
+          </p>
+
+          <p className="text-lg lg:text-[20px] text-black leading-9 mb-8">
+            When you enroll in this course, you'll also be enrolled in this
+            Professional Certificate.
+          </p>
+
+          <ul className="space-y-5 text-lg lg:text-[20px] text-black">
+            <li className="flex items-start gap-4">
+              <span className="text-2xl leading-none mt-1">•</span>
+              <span>Learn new concepts from industry experts</span>
+            </li>
+
+            <li className="flex items-start gap-4">
+              <span className="text-2xl leading-none mt-1">•</span>
+              <span>Gain a foundational understanding of a subject or tool</span>
+            </li>
+
+            <li className="flex items-start gap-4">
+              <span className="text-2xl leading-none mt-1">•</span>
+              <span>Develop job-relevant skills with hands-on projects</span>
+            </li>
+
+            <li className="flex items-start gap-4">
+              <span className="text-2xl leading-none mt-1">•</span>
+              <span>Earn a shareable career certificate from Google</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* IMAGE */}
+      <div className="order-1 lg:order-2 w-full">
+        <img
+          src={Back_End}
+          alt="Marketing course"
+          className="w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[360px] object-cover rounded-2xl"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+</section>
     </div>
   );
 };

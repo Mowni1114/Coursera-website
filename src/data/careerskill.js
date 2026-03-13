@@ -90,7 +90,7 @@ import TN_1 from "../assets/TN_1.png";
 import python from "../assets/python.png";
 import TN_3 from "../assets/TN_3.png";
 import TN_4 from "../assets/TN_4.png";
-import certificate from "../assets/certificate.png";
+import Certificate from "../assets/Certificate.png";
 import mp4 from "../assets/mp4.png";
 import mp5 from "../assets/mp5.png";
 import mp6 from "../assets/mp6.png";
@@ -146,7 +146,7 @@ export const mostPopularData = [
     type: "Course",
     tag: "Free Trial",
     degree: true,
-    degreeLogo: certificate,
+    degreeLogo: Certificate,
     category: "Data Science",
   },
   {
@@ -158,7 +158,7 @@ export const mostPopularData = [
     type: "Course",
     tag: "Free Trial",
     degree: true,
-    degreeLogo: certificate,
+    degreeLogo: Certificate,
     category: "Business",
   },
 
@@ -181,7 +181,7 @@ export const mostPopularData = [
     type: "Professional Certificate",
     tag: "Free Trial",
     degree: true,
-    degreeLogo: certificate,
+    degreeLogo: Certificate,
     category: "Information Technology",
   },
   {
@@ -214,7 +214,7 @@ export const mostPopularData = [
     type: "Professional Certificate",
     tag: "Free Trial",
     degree: true,
-    degreeLogo: certificate,
+    degreeLogo: Certificate,
     category: "Information Technology",
   },
 
@@ -268,7 +268,7 @@ export const mostPopularData = [
     type: "Professional Certificate",
     tag: "Free Trial",
     degree: true,
-    degreeLogo: certificate,
+    degreeLogo: Certificate,
     category: "Data Science",
   },
   {
@@ -306,7 +306,7 @@ export const trendingNowData = [
     type: "Professional Certificate",
     tag: "Free Trial",
     degree: true,
-    degreeLogo: certificate,
+    degreeLogo: Certificate,
 
   },
   {
@@ -318,7 +318,7 @@ export const trendingNowData = [
     type: "Professional Certificate",
     tag: "Free Trial",
     degree: true,
-    degreeLogo: certificate,
+    degreeLogo: Certificate,
  
   },
   {
@@ -340,7 +340,7 @@ export const trendingNowData = [
     type: "Course",
     tag: "Free Trial",
     degree: true,
-    degreeLogo: certificate,
+    degreeLogo: Certificate,
     
   },
 
@@ -364,7 +364,7 @@ export const trendingNowData = [
     type: "Course",
     tag: "Preview",
     degree: true,
-    degreeLogo: certificate,
+    degreeLogo: Certificate,
    
    
   },
@@ -386,7 +386,7 @@ export const trendingNowData = [
     type: "Course",
     tag: "Free Trial",
     degree: true,
-    degreeLogo: certificate,
+    degreeLogo: Certificate,
   },
   {
     id:9,
@@ -397,7 +397,7 @@ export const trendingNowData = [
     type: "Course",
     tag: "Free Trial",
     degree: true,
-    degreeLogo: certificate,
+    degreeLogo: Certificate,
    
   },
   {
@@ -418,7 +418,7 @@ export const trendingNowData = [
     type: "Course",
     tag: "Free Trial",
     degree: true,
-    degreeLogo: certificate,
+    degreeLogo: Certificate,
   },
   {
     id: 11,
