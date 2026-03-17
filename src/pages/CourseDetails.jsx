@@ -2,16 +2,131 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import Footer from "../components/Footer";
+
+import {
+  Star,
+  Video,
+  BookOpen,
+  ClipboardList,
+  Puzzle,
+} from "lucide-react";
 
 import Google from "../assets/Google.png";
 import detail from "../assets/detail1.png";
 import Back_End from "../assets/Back_End.png";
 import Certificate from "../assets/Certificate.png";
-
+import p1 from "../assets/p1.png";
+import p2 from "../assets/p2.png";
+import p3 from "../assets/p3.png";
+import p4 from "../assets/p4.png";
+  const testimonials = [
+    {
+      id: 1,
+      name: "Sarah W.",
+      image: p1,
+      text:
+        "Coursera's reputation for high-quality content, paired with its flexible structure, made it possible for me to dive into data analytics while managing family, health, and everyday life.",
+    },
+    {
+      id: 2,
+      name: "Noeris B.",
+      image: p2,
+      text:
+        "Coursera rebuilt my confidence and showed me I could dream bigger.",
+    },
+    {
+      id: 3,
+      name: "Abdullahi M.",
+      image: p3,
+      text:
+        "I now feel more prepared to take on leadership roles and have already started mentoring colleagues.",
+    },
+    {
+      id: 4,
+      name: "Anas A.",
+      image: p4,
+      text:
+        "Learning with Coursera has expanded my professional expertise with global perspectives.",
+    },
+  ];
+  
+  const faqData = [
+    {
+      id: 1,
+      question:
+        "Is Coursera accredited, and are Coursera certificates recognized by employers?",
+      answer:
+       " Coursera partners with accredited universities and leading companies such as Google and IBM to offer courses, Specializations, and Professional Certificates. Employers widely recognize these credentials because they are issued directly by trusted institutions. Learners can build job-ready skills with the Google Data Analytics Professional Certificate, the IBM Data Analyst Professional Certificate, or start with accredited university content in high-demand fields like data analytics and cybersecurity"
+    },
+    {
+      id: 2,
+      question: "Is a Coursera certificate worth it?",
+      answer:
+        "For many learners, a Coursera certificate is worth it because it provides job-ready skills and a verifiable credential from respected universities and companies. Learners commonly transition into roles in project management, UX design, and data science through programs such as the Google Project Management Professional Certificate, the Google UX Design Professional Certificate, and the IBM Data Science Professional Certificate. Others enter technical fields by starting with beginner-friendly Python or generative AI courses.",
+    },
+    {
+      id: 3,
+      question: "What are most popular courses on Coursera?",
+      answer:
+        "Coursera’s best-known courses and certificates are offered by leading universities and companies in the fields of AI, data science, cybersecurity, and software engineering. Many learners begin with the Machine Learning Specialization or the Deep Learning Specialization. In contrast, others opt for job-aligned pathways, such as the Google Cybersecurity Professional Certificate or the AI Engineer Professional Certificate. You can also browse broad areas, such as artificial intelligence, SQL, or web development, to find highly rated options.",
+    },
+    {
+      id: 4,
+      question: "Does Coursera offer free online courses?",
+      answer:
+        "Yes. Coursera offers thousands of courses that you can preview for free, including access to the first module, allowing you to explore the content before committing. Learners who want full course access or a certificate can join with a 7-day free trial through Coursera Plus or a subscription-based program. Many learners begin with introductory topics, such as Python, digital marketing, or English speaking, and later move into job-focused programs, like the Google IT Support Professional Certificate, when they’re ready to complete a credential .",
+    },
+    {
+      id: 5,
+      question: "How can Coursera help me get a job or advance my carrer?",
+      answer:
+        "Coursera offers job-aligned Professional Certificates and Specializations designed in collaboration with employers and universities to help learners qualify for roles in fields such as cybersecurity, UX, data analytics, AI, and business. Programs such as the Google Cybersecurity Professional Certificate, the Data Analysis with Python Specialization, and the UI/UX Design Specialization help learners build employer-relevant skills. At the same time, many career changers explore areas such as product management or business analysis as pathways into business and technology roles. Coursera also offers online bachelor’s and master’s degrees from accredited universities, which can support long-term career advancement in business, computer science, data, and other high-growth fields. Learners exploring formal education pathways can browse online degrees or view available bachelor’s programs to find a degree aligned to their career goals.",
+    },
+  ];
+  
+  const reviews = [
+    {
+      id: 1,
+      initials: "AG",
+      name: "AG",
+      rating: 5,
+      date: "Reviewed on Jun 20, 2022",
+      text: "thank you google for this course to know what is digital marketing , how it works , what are the definations to various tacts , various terms , types of marketing, marketing funnel and so much ...",
+    },
+    {
+      id: 2,
+      initials: "MK",
+      name: "MK",
+      rating: 5,
+      date: "Reviewed on Oct 18, 2022",
+      text: "it was a wonderful journey and super excited to learn next step. the way of teaching is too the point and simple one can easily understand the basics of digital marketing without having knowledge.",
+    },
+  ];
+  
+  const ratingBars = [
+    { label: "5 stars", value: "86.16%", width: "w-[86%]" },
+    { label: "4 stars", value: "11.40%", width: "w-[11%]" },
+    { label: "3 stars", value: "1.43%", width: "w-[2%]" },
+    { label: "2 stars", value: "0.33%", width: "w-[1%]" },
+    { label: "1 star", value: "0.67%", width: "w-[1%]" },
+  ];
 
 const CourseDetail1 = () => {
   const [showStickyBar, setShowStickyBar] = useState(false);
-
+  const [openModule, setOpenModule] = useState(null);
+  const [showModuleContent, setShowModuleContent] = useState(null);
+  const [activeFaq, setActiveFaq] = useState(null);
+  
+  const toggleModule = (moduleNumber) => {
+    if (openModule === moduleNumber) {
+      setOpenModule(null);
+      setShowModuleContent(null); // ✅ change panniyachu
+    } else {
+      setOpenModule(moduleNumber);
+      setShowModuleContent(null); // ✅ change panniyachu
+    }
+  };
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -400,7 +515,7 @@ const CourseDetail1 = () => {
           </li>
 
           <li className="flex items-start gap-4">
-            <span className="text-2xl leading-none mt-1">•</span>
+            <span className="text-xl leading-none mt-1">•</span>
             <span>Earn a shareable career certificate from Google</span>
           </li>
         </ul>
@@ -485,20 +600,176 @@ const CourseDetail1 = () => {
       <div className="border border-gray-200 rounded-2xl p-6 lg:p-8 bg-white">
         
         {/* Module 1 */}
-        <div className="flex items-center justify-between py-3 border-b border-gray-200 hover:bg-[#eef4ff]  cursor-pointer transition">
-          <div>
-            <div className="text-2xl font-semibold text-black">
-              Introduction to foundations of digital marketing
-            </div>
-            <p className="text-gray-500 text-lg mt-2">
-              Module 1 &nbsp;•&nbsp; 3 hours to complete
-            </p>
-          </div>
-          <ChevronDown size={20}  color="blue"/>
+        <div
+  onClick={() => toggleModule(1)}
+  className={`rounded-2xl transition ${
+    openModule === 1 ? "bg-white" : "hover:bg-[#eef4ff]"
+  }`}
+>
+  <div className="flex items-center justify-between py-3 border-b border-gray-200 cursor-pointer">
+    <div>
+      <div className="text-2xl font-semibold text-black">
+        Introduction to foundations of digital marketing
+      </div>
+      <p className="text-gray-500 text-lg mt-2">
+        Module 1 &nbsp;•&nbsp; 3 hours to complete
+      </p>
+    </div>
+
+    {openModule === 1 ? (
+      <ChevronUp size={20} color="blue" />
+    ) : (
+      <ChevronDown size={20} color="blue" />
+    )}
+  </div>
+
+  {openModule === 1 && (
+    <div className="pt-6 pb-4">
+      <p className="text-black text-[17px] leading-9">
+        You’ll find out what’s in store for Course 1 and the whole certificate
+        program. You’ll also learn about the Coursera platform, procedures, and
+        content types, and meet other learners in the program. Then, you’ll learn
+        about digital marketing and e-commerce basics, the tasks that people who
+        work in these fields do, and the transferable skills you might already
+        have. Finally, you’ll get some tips for embarking on careers in this field.
+      </p>
+
+      <div className="text-2xl font-semibold text-black mt-8 mb-3">
+        What's included
+      </div>
+
+      <div className="flex flex-wrap gap-8 text-lg text-black">
+        <div className="flex items-center gap-2">
+          <Video size={20} className="text-gray-600" />
+          <div>12 videos</div>
         </div>
 
+        <div className="flex items-center gap-2">
+          <BookOpen size={20} className="text-gray-600" />
+          <div>7 readings</div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <ClipboardList size={20} className="text-gray-600" />
+          <div>3 assignments</div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <Puzzle size={20} className="text-gray-600" />
+          <div>1 plugin</div>
+        </div>
+      </div>
+
+      <div className="mt-6">
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowModuleContent(!showModuleContent);
+          }}
+          className="text-black font-semibold text-lg flex items-center gap-2"
+        >
+          {showModuleContent
+            ? "Hide info about module content"
+            : "Show info about module content"}
+
+          {showModuleContent ? (
+            <ChevronUp size={18} />
+          ) : (
+            <ChevronDown size={18} />
+          )}
+        </button>
+      </div>
+
+      {showModuleContent && (
+        <div className="mt-8 space-y-10">
+          {/* Videos */}
+          <div>
+            <div className="flex items-center gap-3 mb-3">
+              <Video size={24} className="text-gray-600" />
+              <div className="text-[22px] font-semibold text-black">
+                12 videos &nbsp;•&nbsp; Total 43 minutes
+              </div>
+            </div>
+
+            <div className="space-y-5 text-[20px] text-black">
+              <div>Welcome to the Google Digital Marketing & E-commerce Certificate &nbsp;•&nbsp; <span className="text-gray-500">8 minutes</span></div>
+              <div>Introduction to Course 1 &nbsp;•&nbsp; <span className="text-gray-500">2 minutes</span></div>
+              <div>Get started with your Google Digital Marketing & E-commerce Certificate &nbsp;•&nbsp; <span className="text-gray-500">2 minutes</span></div>
+              <div>What are digital marketing and e-commerce? &nbsp;•&nbsp; <span className="text-gray-500">5 minutes</span></div>
+              <div>What do digital marketing and e-commerce specialists do? &nbsp;•&nbsp; <span className="text-gray-500">3 minutes</span></div>
+              <div>Transferable skills for digital marketing and e-commerce &nbsp;•&nbsp; <span className="text-gray-500">5 minutes</span></div>
+              <div>Joi - Career Path To Digital Marketing &nbsp;•&nbsp; <span className="text-gray-500">2 minutes</span></div>
+              <div>Melba - My path to working in e-commerce &nbsp;•&nbsp; <span className="text-gray-500">4 minutes</span></div>
+              <div>Launching your digital marketing or e-commerce career &nbsp;•&nbsp; <span className="text-gray-500">5 minutes</span></div>
+              <div>Agency roles vs. in-house roles &nbsp;•&nbsp; <span className="text-gray-500">3 minutes</span></div>
+              <div>Zuri - A day in the life of an entry-level digital marketer &nbsp;•&nbsp; <span className="text-gray-500">3 minutes</span></div>
+              <div>Wrap-up &nbsp;•&nbsp; <span className="text-gray-500">2 minutes</span></div>
+            </div>
+          </div>
+
+          {/* Readings */}
+          <div>
+            <div className="flex items-center gap-3 mb-5">
+              <BookOpen size={24} className="text-gray-600" />
+              <div className="text-[22px] font-semibold text-black">
+                7 readings &nbsp;•&nbsp; Total 46 minutes
+              </div>
+            </div>
+
+            <div className="space-y-5 text-[20px] text-black">
+              <div>Program and Course 1 overview &nbsp;•&nbsp; <span className="text-gray-500">8 minutes</span></div>
+              <div>Helpful resources to get started &nbsp;•&nbsp; <span className="text-gray-500">8 minutes</span></div>
+              <div>Core skills of digital marketing and e-commerce specialists &nbsp;•&nbsp; <span className="text-gray-500">4 minutes</span></div>
+              <div>Roles and responsibilities in digital marketing and e-commerce &nbsp;•&nbsp; <span className="text-gray-500">8 minutes</span></div>
+              <div>E-commerce, ecommerce, or eCommerce? &nbsp;•&nbsp; <span className="text-gray-500">8 minutes</span></div>
+              <div>Digital Marketing & E-commerce Certificate glossary &nbsp;•&nbsp; <span className="text-gray-500">8 minutes</span></div>
+              <div>Glossary terms from module 1 &nbsp;•&nbsp; <span className="text-gray-500">2 minutes</span></div>
+            </div>
+          </div>
+
+          {/* Assignments */}
+          <div>
+            <div className="flex items-center gap-3 mb-5">
+              <ClipboardList size={24} className="text-gray-600" />
+              <div className="text-[22px] font-semibold text-black">
+                3 assignments &nbsp;•&nbsp; Total 90 minutes
+              </div>
+            </div>
+
+            <div className="space-y-5 text-[20px] text-black">
+              <div>Reflection: Your favorite brand’s digital marketing presence &nbsp;•&nbsp; <span className="text-gray-500">30 minutes</span></div>
+              <div>Test your knowledge: Careers in digital marketing and e-commerce &nbsp;•&nbsp; <span className="text-gray-500">10 minutes</span></div>
+              <div>Module 1 challenge &nbsp;•&nbsp; <span className="text-gray-500">50 minutes</span></div>
+            </div>
+          </div>
+
+          {/* Plugin */}
+          <div>
+            <div className="flex items-center gap-3 mb-5">
+              <Puzzle size={24} className="text-gray-600" />
+              <div className="text-[22px] font-semibold text-black">
+                1 plugin &nbsp;•&nbsp; Total 5 minutes
+              </div>
+            </div>
+
+            <div className="space-y-5 text-[20px] text-black">
+              <div>Google Digital Marketing & E-Commerce Participant Entry Survey &nbsp;•&nbsp; <span className="text-gray-500">5 minutes</span></div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="border-b border-gray-200 mt-8"></div>
+    </div>
+  )}
+</div>
+      
         {/* Module 2 */}
-        <div className="flex items-center justify-between py-3 border-b border-gray-200 hover:bg-[#eef4ff]  cursor-pointer transition">
+        <div
+          onClick={() => toggleModule(2)}
+          className="flex items-center justify-between py-3 border-b border-gray-200 hover:bg-[#eef4ff] cursor-pointer transition"
+        >
           <div>
             <div className="text-2xl font-semibold text-black">
               The customer journey and the marketing funnel
@@ -507,11 +778,14 @@ const CourseDetail1 = () => {
               Module 2 &nbsp;•&nbsp; 3 hours to complete
             </p>
           </div>
-          <ChevronDown size={20} color="blue"/>
+          <ChevronDown size={20} color="blue" />
         </div>
-
+      
         {/* Module 3 */}
-        <div className="flex items-center justify-between py-3 border-b border-gray-200 hover:bg-[#eef4ff]  cursor-pointer transition">
+        <div
+          onClick={() => toggleModule(3)}
+          className="flex items-center justify-between py-3 border-b border-gray-200 hover:bg-[#eef4ff] cursor-pointer transition"
+        >
           <div>
             <div className="text-2xl font-semibold text-black">
               Digital marketing and e-commerce strategy
@@ -522,9 +796,12 @@ const CourseDetail1 = () => {
           </div>
           <ChevronDown size={20} color="blue" />
         </div>
-
-        {/* Module 4 highlighted */}
-        <div className="flex items-center justify-between py-3  border-gray-200 hover:bg-[#eef4ff]  cursor-pointer transition">
+      
+        {/* Module 4 */}
+        <div
+          onClick={() => toggleModule(4)}
+          className="flex items-center justify-between py-3 border-gray-200 hover:bg-[#eef4ff] cursor-pointer transition"
+        >
           <div>
             <div className="text-2xl font-semibold text-black">
               Measure performance success
@@ -533,23 +810,20 @@ const CourseDetail1 = () => {
               Module 4 &nbsp;•&nbsp; 2 hours to complete
             </p>
           </div>
-
           <ChevronDown size={20} color="blue" />
-
-          
         </div>
-
+      
         {/* Divider */}
         <div className="border-b border-gray-200 my-3"></div>
-
+      
         {/* Earn certificate section */}
         <div className="flex items-start gap-6 pt-2">
           <div className="w-12 h-12 rounded-2xl bg-[#eef2f7] flex items-center justify-center shrink-0">
             <div className="text-4xl text-blue-700">
-              <img src={Certificate} alt = "certificate" ></img>
+              <img src={Certificate} alt="certificate" />
             </div>
           </div>
-
+      
           <div>
             <div className="text-3xl font-semibold text-black mb-3">
               Earn a career certificate
@@ -607,8 +881,177 @@ const CourseDetail1 = () => {
     </div>
   </div>
 </section>
+<div className="max-w-7xl mx-auto">
+        <div className="text-2xl font-semibold mt-2">
+          Why people choose Coursera
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-3">
+          {testimonials.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white border rounded-xl p-4"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <img
+                  src={item.image}
+                  className="w-12 h-12 rounded-full"
+                />
+                <p className="font-medium">{item.name}</p>
+              </div>
+              <p className="text-sm text-gray-700">
+                “{item.text}”
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
 
 
+
+
+
+      <section className="w-full bg-white py-8">
+      <div className="max-w-7xl mx-auto px-4 lg:px-6">
+        <h2 className="text-[42px] font-semibold text-black mb-8">
+          Reviews
+        </h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-10">
+          {/* LEFT SIDE */}
+          <div>
+            <h3 className="text-[22px] font-semibold text-black mb-10">
+              Learner reviews
+            </h3>
+
+            <div className="flex items-center gap-3 mb-2">
+              <Star size={26} className="fill-blue-700 text-blue-700" />
+              <div className="text-[56px] font-semibold text-black leading-none">
+                4.8
+              </div>
+            </div>
+
+            <p className="text-[18px] text-black mb-10">31,158 reviews</p>
+
+            <div className="space-y-6">
+              {ratingBars.map((item, index) => (
+                <div key={index} className="grid grid-cols-[60px_1fr_70px] items-center gap-4">
+                  <div className="text-[16px] text-black font-medium">
+                    {item.label}
+                  </div>
+
+                  <div className="w-full h-2 bg-[#E6ECF5] rounded-full overflow-hidden">
+                    <div className={`h-full bg-blue-700 rounded-full ${item.width}`}></div>
+                  </div>
+
+                  <div className="text-[16px] text-black">{item.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div>
+            <div className="text-center text-[18px] text-gray-600 mb-10">
+              Showing 3 of 31158
+            </div>
+
+            <div className="space-y-8">
+              {reviews.map((review) => (
+                <div
+                  key={review.id}
+                  className="border border-[#D9E2F0] rounded-2xl p-8 bg-white"
+                >
+                  <div className="flex flex-col md:flex-row md:items-start gap-6">
+                    {/* avatar + name */}
+                    <div className="flex items-center gap-4 min-w-[220px]">
+                      <div className="w-20 h-20 rounded-full bg-blue-700 text-white flex items-center justify-center text-[28px] font-semibold">
+                        {review.initials.charAt(0)}
+                      </div>
+                      <div className="text-[22px] text-black font-medium">
+                        {review.name}
+                      </div>
+                    </div>
+
+                    {/* review content */}
+                    <div className="flex-1">
+                      <div className="flex flex-wrap items-center gap-3 mb-4">
+                        <div className="flex items-center gap-1 text-blue-700">
+                          <Star size={18} className="fill-blue-700 text-blue-700" />
+                          <div className="text-[18px] font-semibold text-black">
+                            {review.rating}
+                          </div>
+                        </div>
+
+                        <div className="text-gray-400 text-[18px]">•</div>
+
+                        <div className="text-[18px] text-gray-700">
+                          {review.date}
+                        </div>
+                      </div>
+
+                      <p className="text-[20px] leading-10 text-black">
+                        {review.text}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <div className="max-w-7xl p-3">
+  <span className="text-2xl font-semibold mb-6 pointer-events-none">
+    Frequently asked questions
+  </span>
+
+  <div className="space-y-3">
+    {faqData.map((faq) => (
+      <div
+        key={faq.id}
+        className="border-bottom bg-gray-50"
+      >
+        <button
+          onClick={() =>
+            setActiveFaq(activeFaq === faq.id ? null : faq.id)
+          }
+          className="w-full flex items-center gap-3 px-4 py-3 font-semibold rounded-lg hover:bg-blue-100"
+        >
+          {activeFaq === faq.id ? (
+            <ChevronUp size={20} />   
+          ) : (
+            <ChevronDown size={20} /> 
+          )}
+
+          <span className="text-left bg-transparent pointer-events-none">
+            {faq.question}
+          </span>
+        </button>
+
+        {activeFaq === faq.id && (
+          <div className="px-3 pb-4 text-sm font-medium text-gray-700">
+            {faq.answer}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
+
+ <div className="mt-6">
+  <p className="text-base px-3">
+    ¹ Median salary and job opening data are sourced from Lightcast™ Job Postings Report <br /> 
+    Content Creator, Machine Learning Engineer and Salesforce Development Representative<br /> (1/1/2024 - 31/12/2024)<br />
+    All other job roles (1/1/2025 - 1/1/2026)
+  </p>
+</div>
+
+
+<Footer />
 </section>
     </div>
   );
