@@ -608,7 +608,7 @@ const CourseDetail1 = () => {
 >
   <div className="flex items-center justify-between py-3 border-b border-gray-200 cursor-pointer">
     <div>
-      <div className="text-2xl font-semibold text-black">
+      <div className="text-base lg:text-2xl font-semibold text-black">
         Introduction to foundations of digital marketing
       </div>
       <p className="text-gray-500 text-lg mt-2">
@@ -771,7 +771,7 @@ const CourseDetail1 = () => {
           className="flex items-center justify-between py-3 border-b border-gray-200 hover:bg-[#eef4ff] cursor-pointer transition"
         >
           <div>
-            <div className="text-2xl font-semibold text-black">
+            <div className="text-base lg:text-2xl font-semibold text-black">
               The customer journey and the marketing funnel
             </div>
             <p className="text-gray-500 text-lg mt-2">
@@ -787,7 +787,7 @@ const CourseDetail1 = () => {
           className="flex items-center justify-between py-3 border-b border-gray-200 hover:bg-[#eef4ff] cursor-pointer transition"
         >
           <div>
-            <div className="text-2xl font-semibold text-black">
+            <div className="text-base lg:text-2xl font-semibold text-black">
               Digital marketing and e-commerce strategy
             </div>
             <p className="text-gray-500 text-lg mt-2">
@@ -803,7 +803,7 @@ const CourseDetail1 = () => {
           className="flex items-center justify-between py-3 border-gray-200 hover:bg-[#eef4ff] cursor-pointer transition"
         >
           <div>
-            <div className="text-2xl font-semibold text-black">
+            <div className="text-base lg:text-2xl font-semibold text-black">
               Measure performance success
             </div>
             <p className="text-gray-500 text-lg mt-2">
@@ -825,10 +825,10 @@ const CourseDetail1 = () => {
           </div>
       
           <div>
-            <div className="text-3xl font-semibold text-black mb-3">
+            <div className="text-2xl font-semibold text-black mb-3">
               Earn a career certificate
             </div>
-            <p className="text-xl text-black leading-9">
+            <p className="text-base lg:text-xl text-black leading-9">
               Add this credential to your LinkedIn profile, resume, or CV.
               Share it on social media and in your performance review.
             </p>

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import MegaMenu from "./MegaMenu";
 import { FiSearch } from "react-icons/fi";
 import MobileMegaMenu from "./MobileMegaMenu";
+import LoginModal from "./LoginModal";
 
 const Navbar = () => {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
   return (
     <header className="navbar-wrapper">
 
@@ -35,8 +38,8 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* LOGO (FULL SVG ✅) */}
-          <a className="navbar-brand ps-5" href="#"  >   
+          {/* LOGO */}
+          <a className="navbar-brand ps-5" href="#">
             <svg
               viewBox="0 0 1155 164"
               xmlns="http://www.w3.org/2000/svg"
@@ -86,15 +89,21 @@ const Navbar = () => {
 
             {/* RIGHT BUTTONS */}
             <div className="ms-auto d-flex align-items-center gap-3">
-              <span className="text-primary" style={{ cursor: "pointer" }}>
+              <span
+                className="text-primary"
+                style={{ cursor: "pointer" }}
+                onClick={() => setShowLoginModal(true)}
+              >
                 Log In
               </span>
 
-              <button className="btn btn-outline-primary fw-semibold">
+              <button
+                className="btn btn-outline-primary fw-semibold"
+                onClick={() => setShowLoginModal(true)}
+              >
                 Join for Free
               </button>
             </div>
-
           </div>
         </div>
       </nav>
@@ -114,6 +123,11 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* LOGIN MODAL */}
+      <LoginModal
+        isOpen={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+      />
     </header>
   );
 };
